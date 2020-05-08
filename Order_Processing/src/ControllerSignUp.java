@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 
 public class ControllerSignUp {
 
@@ -45,7 +44,7 @@ public class ControllerSignUp {
 	TextField emailText = new TextField();
 	@FXML
 	TextField shippingText = new TextField();
-	SignInAndUp sign = new SignInAndUp();;
+	SignInAndUp sign = new SignInAndUp();
 
 	public void Sign_UP(ActionEvent event) throws IOException {
 		System.out.println(sign.sign_UP(usernameText.getText(), passwordText.getText(), firstnameText.getText(),
