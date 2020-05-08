@@ -32,18 +32,6 @@ public class Manager implements Customers, Managers{
 	}
 
 	@Override
-	public boolean sign_UP() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean sign_IN() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public void edit_Information() {
 		// TODO Auto-generated method stub
 		
@@ -69,12 +57,6 @@ public class Manager implements Customers, Managers{
 
 	@Override
 	public void checkOut_ShoppingCart() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void log_Out() {
 		// TODO Auto-generated method stub
 		
 	}

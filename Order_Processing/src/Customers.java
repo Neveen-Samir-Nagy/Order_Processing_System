@@ -1,10 +1,6 @@
 
 public interface Customers {
 
-	boolean sign_UP();
-
-	boolean sign_IN();
-
 	void edit_Information();
 
 	boolean search_ForBooks();
@@ -14,6 +10,4 @@ public interface Customers {
 	void manage_ShoppingCart();
 
 	void checkOut_ShoppingCart();
-
-	void log_Out();
 }
