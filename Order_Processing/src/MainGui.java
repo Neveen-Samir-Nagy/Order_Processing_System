@@ -9,7 +9,7 @@ public class MainGui extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		Parent root = FXMLLoader.load(getClass().getResource("Sign_IN_OUT.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("CustomerFXML.fxml"));
 		Scene scence = new Scene(root);
 		primaryStage.setTitle("Order processing System");
 		primaryStage.setScene(scence);

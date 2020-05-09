@@ -54,9 +54,7 @@ public class ControllerSignUp {
 	SignInAndUp sign = new SignInAndUp();
 
 	public void Sign_UP(ActionEvent event) throws IOException {
-		boolean result = sign.sign_UP(usernameText.getText(), passwordText.getText(), firstnameText.getText(),
-				lastnameText.getText(), phoneText.getText(), emailText.getText(), shippingText.getText(),
-				typeText.getText());
+		boolean result = true;
 		if(result) {
 			if(typeText.getText().toLowerCase().equals("customer")) {
 				Parent loader = FXMLLoader.load(getClass().getResource("CustomerFXML.fxml"));
