@@ -17,33 +17,33 @@ public class ControllerSignIn {
 
 	@FXML
 	Button log_in = new Button();
-	
+
 	@FXML
 	Label sign_in = new Label();
-	
+
 	@FXML
 	Label userName = new Label();
-	
+
 	@FXML
 	Label password = new Label();
-	
+
 	@FXML
 	Label type = new Label();
-	
+
 	@FXML
 	TextField user_name = new TextField();
-	
+
 	@FXML
 	TextField pass = new TextField();
-	
+
 	@FXML
 	TextField Type = new TextField();
-	
+
 	SignInAndUp sign = new SignInAndUp();
-	
-	public void Sign_in(ActionEvent event) throws IOException{
+
+	public void Sign_in(ActionEvent event) throws IOException {
 		boolean result = sign.sign_IN(user_name.getText(), pass.getText(), Type.getText());
-		if(result) {
+		if (result) {
 			if(Type.getText().toLowerCase().equals("customer")) {
 				Parent loader = FXMLLoader.load(getClass().getResource("CustomerFXML.fxml"));
 				Scene scene = new Scene(loader);
@@ -57,7 +57,7 @@ public class ControllerSignIn {
 				app.setScene(scene);
 				app.show();
 			}
-		}else {
+		} else {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Error Message");
 			alert.setHeaderText(null);
