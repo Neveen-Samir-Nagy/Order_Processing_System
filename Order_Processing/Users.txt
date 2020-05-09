@@ -1,3 +1,4 @@
 Manager | Neveen_Samir | 1234 | neveen@gmail.com | Neveen | Samir | 01234 | EhDa
 Manager | Febronia_Ashraf | 1234 | Feby@gmail.com | Febronia | Ashraf | 01234 | EhDa
 Manager | Neveen_Samir | 1234 | nev@gmail.com | Neveen | Samir | 01234 | ehda
+manager | Neveen_Samir | 1234 | neveen@yahoo.com | Neveen | Samir | 12345 | ehda

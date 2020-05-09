@@ -2,9 +2,16 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class ControllerSignUp {
 
@@ -47,8 +54,29 @@ public class ControllerSignUp {
 	SignInAndUp sign = new SignInAndUp();
 
 	public void Sign_UP(ActionEvent event) throws IOException {
-		System.out.println(sign.sign_UP(usernameText.getText(), passwordText.getText(), firstnameText.getText(),
+		boolean result = sign.sign_UP(usernameText.getText(), passwordText.getText(), firstnameText.getText(),
 				lastnameText.getText(), phoneText.getText(), emailText.getText(), shippingText.getText(),
-				typeText.getText()));
+				typeText.getText());
+		if(result) {
+			if(typeText.getText().toLowerCase().equals("customer")) {
+				Parent loader = FXMLLoader.load(getClass().getResource("CustomerFXML.fxml"));
+				Scene scene = new Scene(loader);
+				Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+				app.setScene(scene);
+				app.show();
+			}else if(typeText.getText().toLowerCase().equals("manager")) {
+				Parent loader = FXMLLoader.load(getClass().getResource("ManagerFXML.fxml"));
+				Scene scene = new Scene(loader);
+				Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+				app.setScene(scene);
+				app.show();
+			}
+		}else {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Error Message");
+			alert.setHeaderText(null);
+			alert.setContentText("Error! This Account is already existed");
+			alert.showAndWait();
+		}
 	}
 }

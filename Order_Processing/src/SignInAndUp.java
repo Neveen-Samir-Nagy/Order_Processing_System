@@ -26,7 +26,7 @@ public class SignInAndUp implements Sign_INAndUP {
 			while ((read = myReader.readLine()) != null) // Reading Content from the file
 			{
 				words = read.split("[ |]+");
-				if (words[0].equals(Type) && words[1].equals(Username) && words[3].equals(EmailAddress)) {
+				if (words[0].toLowerCase().equals(Type) && words[1].equals(Username) && words[3].equals(EmailAddress)) {
 					result = false;
 				}
 			}
@@ -57,7 +57,7 @@ public class SignInAndUp implements Sign_INAndUP {
 			while ((read = myReader.readLine()) != null) // Reading Content from the file
 			{
 				words = read.split("[ |]+");
-				if (words[0].equals(Type) && words[1].equals(Username) && words[2].equals(Password)) {
+				if (words[0].toLowerCase().equals(Type) && words[1].equals(Username) && words[2].equals(Password)) {
 					result = true;
 				}
 			}
