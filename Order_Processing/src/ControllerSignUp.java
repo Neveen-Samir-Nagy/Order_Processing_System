@@ -16,9 +16,9 @@ import javafx.stage.Stage;
 public class ControllerSignUp {
 
 	@FXML
-	Button done = new Button();
+	Button finish = new Button();
 	@FXML
-	Label sign_in = new Label();
+	Label registeration = new Label();
 	@FXML
 	Label usernameLabel = new Label();
 	@FXML

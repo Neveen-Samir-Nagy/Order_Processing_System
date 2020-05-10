@@ -10,11 +10,15 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Control;
 import javafx.scene.control.Dialog;
@@ -27,6 +31,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class ControllerCustomers {
 	
@@ -48,7 +53,11 @@ public class ControllerCustomers {
 	}
    
    public void logOut(ActionEvent event) throws IOException {
-		
+	    Parent loader = FXMLLoader.load(getClass().getResource("Sign_IN.fxml"));
+		Scene scene = new Scene(loader);
+		Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+		app.setScene(scene);
+		app.show();
 	}
     
    public void Manage1(ActionEvent event) throws IOException {

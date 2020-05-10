@@ -53,7 +53,11 @@ public class ControllerMangers {
 	}
    
    public void logOut(ActionEvent event) throws IOException {
-		
+	    Parent loader = FXMLLoader.load(getClass().getResource("Sign_IN.fxml"));
+		Scene scene = new Scene(loader);
+		Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+		app.setScene(scene);
+		app.show();
 	}
     
    public void Manage1(ActionEvent event) throws IOException {

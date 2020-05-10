@@ -22,16 +22,7 @@ public class ControllerSignIn {
 	Button log_in = new Button();
 
 	@FXML
-	Label sign_in = new Label();
-
-	@FXML
-	Label userName = new Label();
-
-	@FXML
-	Label password = new Label();
-
-	@FXML
-	Label type = new Label();
+	Button register = new Button();
 
 	@FXML
 	TextField user_name = new TextField();
@@ -67,5 +58,13 @@ public class ControllerSignIn {
 			alert.setContentText("Error! This Account doesn't exist");
 			alert.showAndWait();
 		}
+	}
+	
+	public void sign_UP(ActionEvent event) throws IOException {
+		Parent loader = FXMLLoader.load(getClass().getResource("Sign_UP.fxml"));
+		Scene scene = new Scene(loader);
+		Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+		app.setScene(scene);
+		app.show();
 	}
 }
