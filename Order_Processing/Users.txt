@@ -1,3 +1,4 @@
 Customer| Neveen_Samir | 1234 | neveen@gmail.com | Neveen | Samir | 01234 | EhDa
 Manager | Febronia_Ashraf | 1234 | Feby@gmail.com | Febronia | Ashraf | 01234 | EhDa
 Manager | neveen.samir | 1234 | n@yahoo.com | neveen | samir | qwkejke | ndkwnkw
+manager | febronia_ashraf | febronia | febroniaashraf27@gmail.com | febronia | ashraf | 01208278789 | 13 el syouf

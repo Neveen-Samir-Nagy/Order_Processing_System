@@ -2,8 +2,9 @@
 public class Manager implements Customers, Managers{
 
 	@Override
-	public void add_NewBook() {
+	public void add_NewBook(Book b) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 
