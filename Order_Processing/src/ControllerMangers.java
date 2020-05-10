@@ -1,13 +1,22 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Optional;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class ControllerMangers {
@@ -40,11 +49,15 @@ public class ControllerMangers {
 	}
 	
    public void add_Book(ActionEvent event) throws IOException {
-		
+	   
 	}
    
    public void logOut(ActionEvent event) throws IOException {
-		
+	    Parent loader = FXMLLoader.load(getClass().getResource("Sign_IN.fxml"));
+		Scene scene = new Scene(loader);
+		Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+		app.setScene(scene);
+		app.show();
 	}
     
    public void Manage1(ActionEvent event) throws IOException {
