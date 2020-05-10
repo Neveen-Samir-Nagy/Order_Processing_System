@@ -9,7 +9,7 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0">
          <children>
-            <AnchorPane layoutX="-10.0" layoutY="-10.0" prefHeight="737.0" prefWidth="784.0" style="-fx-background-image: url(&quot;welcome.JPG&quot;); -fx-background-repeat: stretch; -fx-background-size: cover; -fx-background-position: left top,center;">
+            <AnchorPane layoutX="-10.0" layoutY="-10.0" prefHeight="737.0" prefWidth="784.0" style="-fx-background-image: url(&quot;welcome2.JPG&quot;); -fx-background-repeat: stretch; -fx-background-size: cover; -fx-background-position: left top,center;">
                <children>
                   <Button fx:id="log_in" layoutX="291.0" layoutY="556.0" mnemonicParsing="false" onAction="#Sign_in" prefHeight="59.0" prefWidth="221.0" style="-fx-background-image: url(&quot;welcome.JPG&quot;);" text="LOG IN" textFill="DARKSLATEGRAY">
                      <font>

@@ -9,7 +9,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerSignUp">
    <children>
-      <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="846.0" prefWidth="829.0" style="-fx-background-image: url(&quot;welcome.jpg&quot;); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: stretch;">
+      <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="846.0" prefWidth="829.0" style="-fx-background-image: url(&quot;welcome2.jpg&quot;); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: stretch;">
          <children>
             <ButtonBar layoutX="295.0" layoutY="639.0" prefHeight="53.0" prefWidth="209.0" />
             <Label fx:id="usernameLabel" layoutX="105.0" layoutY="124.0" prefHeight="39.0" prefWidth="202.0" text="User Name" textFill="FIREBRICK">
@@ -57,43 +57,51 @@
                   <Font name="Forte" size="62.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameText" alignment="CENTER" layoutX="415.0" layoutY="119.0" prefHeight="47.0" prefWidth="275.0" promptText="UserName">
-               <font>
-                  <Font size="23.0" />
-               </font></TextField>
-            <TextField fx:id="firstnameText" alignment="CENTER" layoutX="415.0" layoutY="195.0" prefHeight="47.0" prefWidth="275.0" promptText="FisrtName">
-               <font>
-                  <Font size="23.0" />
-               </font></TextField>
-            <TextField fx:id="lastnameText" alignment="CENTER" layoutX="415.0" layoutY="278.0" prefHeight="47.0" prefWidth="275.0" promptText="LastName">
-               <font>
-                  <Font size="23.0" />
-               </font></TextField>
-            <TextField fx:id="emailText" alignment="CENTER" layoutX="415.0" layoutY="352.0" prefHeight="47.0" prefWidth="275.0" promptText="EmailAddress">
-               <font>
-                  <Font size="23.0" />
-               </font></TextField>
-            <TextField fx:id="phoneText" alignment="CENTER" layoutX="415.0" layoutY="425.0" prefHeight="47.0" prefWidth="275.0" promptText="PhoneNumber">
-               <font>
-                  <Font size="22.0" />
-               </font></TextField>
-            <TextField fx:id="shippingText" alignment="CENTER" layoutX="415.0" layoutY="504.0" prefHeight="47.0" prefWidth="275.0" promptText="ShippingAddress">
-               <font>
-                  <Font size="22.0" />
-               </font></TextField>
-            <TextField fx:id="typeText" alignment="CENTER" layoutX="415.0" layoutY="592.0" prefHeight="47.0" prefWidth="275.0" promptText="Type">
-               <font>
-                  <Font size="22.0" />
-               </font></TextField>
-            <TextField fx:id="passwordText" alignment="CENTER" layoutX="415.0" layoutY="685.0" prefHeight="47.0" prefWidth="275.0" promptText="Password">
-               <font>
-                  <Font size="22.0" />
-               </font></TextField>
             <Button fx:id="finish" layoutX="664.0" layoutY="767.0" mnemonicParsing="false" onAction="#Sign_UP" prefHeight="38.0" prefWidth="128.0" style="-fx-background-image: url(&quot;welcome.jpg&quot;); -fx-background-position: center; -fx-background-size: cover;" text="Finish" textFill="FIREBRICK">
                <font>
                   <Font name="Forte" size="31.0" />
                </font>
             </Button>
+            <TextField fx:id="usernameText" alignment="CENTER" layoutX="415.0" layoutY="123.0" prefHeight="48.0" prefWidth="275.0" promptText="UserName">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="firstnameText" alignment="CENTER" layoutX="415.0" layoutY="201.0" prefHeight="50.0" prefWidth="275.0" promptText="FirstName">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="lastnameText" alignment="CENTER" layoutX="415.0" layoutY="280.0" prefHeight="48.0" prefWidth="275.0" promptText="LastName">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="emailText" alignment="CENTER" layoutX="415.0" layoutY="357.0" prefHeight="50.0" prefWidth="275.0" promptText="EmailAddress">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="phoneText" alignment="CENTER" layoutX="419.0" layoutY="430.0" prefHeight="48.0" prefWidth="268.0" promptText="PhoneNumber">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="shippingText" alignment="CENTER" layoutX="416.0" layoutY="514.0" prefHeight="50.0" prefWidth="275.0" promptText="ShippingAddress">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="typeText" alignment="CENTER" layoutX="419.0" layoutY="602.0" prefHeight="48.0" prefWidth="268.0" promptText="Type">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="passwordText" alignment="CENTER" layoutX="419.0" layoutY="694.0" prefHeight="51.0" prefWidth="268.0" promptText="Password">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
    </children>
