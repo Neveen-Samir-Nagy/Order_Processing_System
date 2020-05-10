@@ -1,7 +1,7 @@
 
 public interface Managers {
 
-	void add_NewBook();
+	void add_NewBook(Book b);
 
 	void modify_ExistingBook();
 

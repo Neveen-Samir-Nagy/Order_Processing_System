@@ -1,3 +1,5 @@
+import java.sql.*;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +20,12 @@ public class MainGui extends Application{
 		primaryStage.show();
 	}
 
-	public static void main(String[] args) {
-		launch(args);
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con=DriverManager.getConnection(  
+				    "jdbc:oracle:thin:@localhost:1521:xe","system","password");
+			Statement stmt=con.createStatement();  
+		    launch(args);
 	}
 }
