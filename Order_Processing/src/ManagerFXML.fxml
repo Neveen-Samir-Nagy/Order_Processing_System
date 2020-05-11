@@ -93,19 +93,27 @@
                         </MenuItem>
                         <MenuItem fx:id="searchAuthor" mnemonicParsing="false" text="Author">
                            <graphic>
-                              <TextField fx:id="authorText" />
+                              <TextField fx:id="authorText" onAction="#search_forBook" />
                            </graphic>
                         </MenuItem>
                         <MenuItem fx:id="searchISBN_Title" mnemonicParsing="false" text="ISBN &amp; Title">
                            <graphic>
-                              <TextField fx:id="ISBN_Title_Text" />
+                              <TextField fx:id="ISBN_Title_Text" onAction="#search_forBook" />
                            </graphic>
                         </MenuItem>
                      </items>
                   </Menu>
-                  <Menu fx:id="update" mnemonicParsing="false" text="Update">
+                  <Menu fx:id="checkOut" mnemonicParsing="false" text="CheckOut">
                      <items>
-                        <MenuItem fx:id="updateItem" mnemonicParsing="false" text="Update Book" />
+                        <MenuItem fx:id="creditCard_Item" mnemonicParsing="false" text="Credit Card Number">
+                           <graphic>
+                              <TextField fx:id="creditCardText" onAction="#checkOut" />
+                           </graphic></MenuItem>
+                        <MenuItem fx:id="date_Item" mnemonicParsing="false" text="Date">
+                           <graphic>
+                              <TextField fx:id="dateText" onAction="#checkOut" />
+                           </graphic>
+                        </MenuItem>
                      </items>
                   </Menu>
                   <Menu fx:id="delete" mnemonicParsing="false" onAction="#remove_booksFromCart" text="Delete">
@@ -121,36 +129,44 @@
                      <items>
                         <Menu fx:id="category2" mnemonicParsing="false" text="Category">
                            <items>
-                              <MenuItem fx:id="science2" mnemonicParsing="false" text="Science" />
-                              <MenuItem fx:id="art2" mnemonicParsing="false" text="Art" />
-                              <MenuItem fx:id="religion2" mnemonicParsing="false" text="Religion" />
-                              <MenuItem fx:id="history2" mnemonicParsing="false" text="History" />
-                              <MenuItem fx:id="geography2" mnemonicParsing="false" text="Geography" />
+                              <MenuItem fx:id="science2" mnemonicParsing="false" onAction="#modify_Book" text="Science" />
+                              <MenuItem fx:id="art2" mnemonicParsing="false" onAction="#modify_Book" text="Art" />
+                              <MenuItem fx:id="religion2" mnemonicParsing="false" onAction="#modify_Book" text="Religion" />
+                              <MenuItem fx:id="history2" mnemonicParsing="false" onAction="#modify_Book" text="History" />
+                              <MenuItem fx:id="geography2" mnemonicParsing="false" onAction="#modify_Book" text="Geography" />
                            </items>
                         </Menu>
                         <MenuItem fx:id="searchPublisher2" mnemonicParsing="false" text="Publisher">
                            <graphic>
-                              <TextField fx:id="publisherText2" />
+                              <TextField fx:id="publisherText2" onAction="#modify_Book" />
                            </graphic>
                         </MenuItem>
                         <MenuItem fx:id="searchAuthor2" mnemonicParsing="false" text="Author">
                            <graphic>
-                              <TextField fx:id="authorText2" />
+                              <TextField fx:id="authorText2" onAction="#modify_Book" />
                            </graphic>
                         </MenuItem>
                         <MenuItem fx:id="searchISBN_Title2" mnemonicParsing="false" text="ISBN &amp; Title">
                            <graphic>
-                              <TextField fx:id="ISBN_Title_Text2" />
+                              <TextField fx:id="ISBN_Title_Text2" onAction="#modify_Book" />
                            </graphic>
                         </MenuItem>
                      </items></Menu>
-                  <Menu fx:id="placeOrder" mnemonicParsing="false" text="Place Order">
+                  <Menu fx:id="placeOrder" mnemonicParsing="false" onAction="#place_Order" text="Place Order">
                      <items>
-                        <MenuItem fx:id="placeOrderItem" mnemonicParsing="false" text="Place Order to Books" />
+                        <MenuItem fx:id="ID_BookOrder" mnemonicParsing="false" text="ID of the Book">
+                           <graphic>
+                              <TextField fx:id="id_OrderBookText" />
+                           </graphic></MenuItem>
+                        <MenuItem fx:id="quantity" mnemonicParsing="false" text="Quantity">
+                           <graphic>
+                              <TextField fx:id="quantityText" />
+                           </graphic>
+                        </MenuItem>
                      </items></Menu>
                   <Menu fx:id="confirmOrder" mnemonicParsing="false" text="Confirm Order">
                      <items>
-                        <MenuItem fx:id="confirmOrderItem" mnemonicParsing="false" text="Confirm Order" />
+                        <MenuItem fx:id="confirmOrderItem" mnemonicParsing="false" onAction="#confirm_Order" text="Confirm Order" />
                      </items></Menu>
                   <Menu fx:id="viewReport" mnemonicParsing="false" text="View Report">
                      <items>

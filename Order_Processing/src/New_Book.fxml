@@ -50,7 +50,7 @@
                   <Font name="Bodoni MT" size="63.0" />
                </font>
             </Label>
-            <Button fx:id="add" layoutX="687.0" layoutY="774.0" mnemonicParsing="false" onAction="#done" prefHeight="38.0" prefWidth="128.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: center; -fx-background-size: cover;" text="ADD" textFill="#1c657c">
+            <Button fx:id="add" layoutX="660.0" layoutY="772.0" mnemonicParsing="false" onAction="#done" prefHeight="61.0" prefWidth="169.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: center; -fx-background-size: cover;" text="Confirm" textFill="#1c657c">
                <font>
                   <Font name="Bell MT" size="33.0" />
                </font>

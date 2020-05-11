@@ -49,15 +49,13 @@ public class ControllerMangers {
 	@FXML
 	Menu search = new Menu();
 	@FXML
-	Menu update = new Menu();
+	Menu checkOut = new Menu();
 	@FXML
 	Menu category = new Menu();
 	@FXML
 	Menu add = new Menu();
 	@FXML
 	Menu modify = new Menu();
-	@FXML
-	Menu placeOrder = new Menu();
 	@FXML
 	Menu confirmOrder = new Menu();
 	@FXML
@@ -71,7 +69,9 @@ public class ControllerMangers {
 	@FXML
 	MenuItem deleteItem = new MenuItem();
 	@FXML
-	MenuItem updateItem = new MenuItem();
+	MenuItem creditCard_Item = new MenuItem();
+	@FXML
+	MenuItem date_Item = new MenuItem();
 	@FXML
 	MenuItem viewItem = new MenuItem();
 	@FXML
@@ -95,8 +95,6 @@ public class ControllerMangers {
 	@FXML
 	MenuItem addItem = new MenuItem();
 	@FXML
-	MenuItem placeOrderItem = new MenuItem();
-	@FXML
 	MenuItem confirmOrderItem = new MenuItem();
 	@FXML
 	MenuItem totalSalesReport = new MenuItem();
@@ -112,6 +110,18 @@ public class ControllerMangers {
 	TextField ISBN_Title_Text = new TextField();
 	@FXML
 	Label shippingCart = new Label();
+	@FXML
+	MenuItem ID_BookOrder = new MenuItem();
+	@FXML
+	MenuItem quantity = new MenuItem();
+	@FXML
+	TextField id_OrderBookText = new TextField();
+	@FXML
+	TextField quantityText = new TextField();
+	@FXML
+	TextField creditCardText = new TextField();
+	@FXML
+	TextField dateText = new TextField();
 	@FXML
 	ListView<String> list_Books = new ListView<String>();
 
@@ -133,11 +143,12 @@ public class ControllerMangers {
 		stage.show();
 	}
 
-	public void options(ActionEvent event) throws IOException {
-
-	}
-
 	public void search_forBook(ActionEvent event) throws IOException {
+		if (event.getSource() instanceof TextField) {
+
+		} else if (event.getSource() instanceof MenuItem) {
+
+		}
 		boolean found = true;
 		if (found) {
 			Pane rootPane = new Pane();
@@ -169,6 +180,11 @@ public class ControllerMangers {
 
 	public void insert_Book(ActionEvent event) throws IOException {
 		boolean found = true;
+		if (event.getSource() instanceof TextField) {
+
+		} else if (event.getSource() instanceof MenuItem) {
+
+		}
 		if (found) {
 			ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
 			listChoices.add("merna");
@@ -192,30 +208,23 @@ public class ControllerMangers {
 		app.show();
 	}
 
-	public void Manage1(ActionEvent event) throws IOException {
-
-	}
-
-	public void Manage2(ActionEvent event) throws IOException {
-
-	}
-
-	public void Manage3(ActionEvent event) throws IOException {
-
-	}
-
-	public void checkOut1(ActionEvent event) throws IOException {
-
-	}
-
-	public void checkOut2(ActionEvent event) throws IOException {
-
+	public void checkOut(ActionEvent event) throws IOException {
+		// remove book from table that are in shipping cart list_books
+		if (creditCardText.getText().equals("") || dateText.getText().equals("")) {
+			Alert a = new Alert(AlertType.NONE);
+			// set alert type
+			a.setAlertType(AlertType.ERROR);
+			// set content text
+			a.setContentText("Please Enter all required Information");
+			// show the dialog
+			a.show();
+		}
 	}
 
 	public void remove_booksFromCart(ActionEvent event) {
 		list_Books.getItems().remove(list_Books.getSelectionModel().getSelectedItem());
 	}
-	
+
 	public void view_items(ActionEvent event) {
 		Pane rootPane = new Pane();
 		ObservableList<String> listChoices = FXCollections.observableArrayList(list_Books.getItems());
@@ -234,6 +243,7 @@ public class ControllerMangers {
 		newDialog.setScene(newDialogScene);
 		newDialog.show();
 	}
+
 	public void View_IndividualAndTotalPriceofBooks(ActionEvent event) {
 		Pane rootPane = new Pane();
 		ObservableList<String> listChoices = null;
@@ -252,7 +262,7 @@ public class ControllerMangers {
 		newDialog.setScene(newDialogScene);
 		newDialog.show();
 	}
-	
+
 	public void add_newBook(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("New_Book.fxml"));
 		Scene scene = new Scene(root);
@@ -261,7 +271,7 @@ public class ControllerMangers {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+
 	public void view_Report1(ActionEvent event) {
 		Pane rootPane = new Pane();
 		ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
@@ -280,6 +290,7 @@ public class ControllerMangers {
 		newDialog.setScene(newDialogScene);
 		newDialog.show();
 	}
+
 	public void view_Report2(ActionEvent event) {
 		Pane rootPane = new Pane();
 		ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
@@ -298,6 +309,7 @@ public class ControllerMangers {
 		newDialog.setScene(newDialogScene);
 		newDialog.show();
 	}
+
 	public void view_Report3(ActionEvent event) {
 		Pane rootPane = new Pane();
 		ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
@@ -315,5 +327,48 @@ public class ControllerMangers {
 		Scene newDialogScene = new Scene(rootPane);
 		newDialog.setScene(newDialogScene);
 		newDialog.show();
+	}
+
+	public void place_Order(ActionEvent event) {
+		if (id_OrderBookText.getText().equals("") || quantityText.getText().equals("")) {
+			Alert a = new Alert(AlertType.NONE);
+			// set alert type
+			a.setAlertType(AlertType.ERROR);
+			// set content text
+			a.setContentText("Please Enter all required Information");
+			// show the dialog
+			a.show();
+		}
+	}
+
+	public void confirm_Order(ActionEvent event) {
+		Pane rootPane = new Pane();
+		ObservableList<String> listChoices = FXCollections.observableArrayList(list_Books.getItems());
+		ListView<String> listView = new ListView<String>();
+		listView.setItems(listChoices);
+		rootPane.getChildren().add(listView);
+		Stage newDialog = new Stage(StageStyle.UNIFIED);
+		newDialog.getIcons().add(new Image("DB.jpg"));
+		listView.setPrefWidth(800);
+		listView.setPrefHeight(500);
+		newDialog.setMinHeight(500);
+		newDialog.setMinWidth(800);
+		newDialog.initModality(Modality.APPLICATION_MODAL);
+		newDialog.setTitle("Ordered Books");
+		Scene newDialogScene = new Scene(rootPane);
+		newDialog.setScene(newDialogScene);
+		newDialog.show();
+	}
+
+	public void modify_Book(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("New_Book.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = new Stage();
+		stage.getIcons().add(new Image("DB.jpg"));
+		stage.setScene(scene);
+		stage.show();
+		Alert a1 = new Alert(AlertType.NONE, "Please Enter Null for no needed attributes", ButtonType.OK);
+		// show the dialog
+		a1.show();
 	}
 }

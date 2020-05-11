@@ -66,7 +66,7 @@ public class ControllerCustomers {
 	@FXML
 	Menu search = new Menu();
 	@FXML
-	Menu update = new Menu();
+	Menu checkOut = new Menu();
 	@FXML
 	Menu category = new Menu();
 	@FXML
@@ -78,7 +78,9 @@ public class ControllerCustomers {
 	@FXML
 	MenuItem deleteItem = new MenuItem();
 	@FXML
-	MenuItem updateItem = new MenuItem();
+	MenuItem creditCard_Item = new MenuItem();
+	@FXML
+	MenuItem date_Item = new MenuItem();
 	@FXML
 	MenuItem viewItem = new MenuItem();
 	@FXML
@@ -105,6 +107,10 @@ public class ControllerCustomers {
 	TextField authorText = new TextField();
 	@FXML
 	TextField ISBN_Title_Text = new TextField();
+	@FXML
+	TextField creditCardText = new TextField();
+	@FXML
+	TextField dateText = new TextField();
 	@FXML
 	Label shippingCart = new Label();
 	@FXML
@@ -185,24 +191,17 @@ public class ControllerCustomers {
 
 	}
 
-	public void Manage1(ActionEvent event) throws IOException {
-
-	}
-
-	public void Manage2(ActionEvent event) throws IOException {
-
-	}
-
-	public void Manage3(ActionEvent event) throws IOException {
-
-	}
-
-	public void checkOut1(ActionEvent event) throws IOException {
-
-	}
-
-	public void checkOut2(ActionEvent event) throws IOException {
-
+	public void checkOut(ActionEvent event) throws IOException {
+		//remove book from table that are in shipping cart list_books
+		if (creditCardText.getText().equals("") || dateText.getText().equals("")) {
+			Alert a = new Alert(AlertType.NONE);
+			// set alert type
+			a.setAlertType(AlertType.ERROR);
+			// set content text
+			a.setContentText("Please Enter all required Information");
+			// show the dialog
+			a.show();
+		}
 	}
 
 	public void remove_booksFromCart(ActionEvent event) {
