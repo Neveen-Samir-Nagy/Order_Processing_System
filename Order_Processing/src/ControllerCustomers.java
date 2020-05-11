@@ -105,6 +105,7 @@ public class ControllerCustomers {
     	Parent root = FXMLLoader.load(getClass().getResource("Edit.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("DB.jpg"));
         stage.setScene(scene);
         stage.show();
 	}

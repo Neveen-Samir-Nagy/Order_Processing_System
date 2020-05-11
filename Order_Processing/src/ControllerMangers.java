@@ -20,6 +20,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -115,6 +116,7 @@ public class ControllerMangers {
     	Parent root = FXMLLoader.load(getClass().getResource("Edit.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("DB.jpg"));
         stage.setScene(scene);
         stage.show();
 	}

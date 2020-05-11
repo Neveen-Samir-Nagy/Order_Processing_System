@@ -1,14 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerEditProfile">
    <children>
-      <AnchorPane prefHeight="788.0" prefWidth="708.0">
+      <AnchorPane layoutX="10.0" layoutY="10.0">
          <children>
-            <Label layoutX="302.0" layoutY="65.0" text="Label" />
+            <AnchorPane layoutX="-10.0" layoutY="-10.0" prefHeight="859.0" prefWidth="842.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: left top,center; -fx-background-size: cover;">
+               <children>
+                  <ButtonBar layoutX="295.0" layoutY="639.0" prefHeight="53.0" prefWidth="209.0" />
+                  <Label fx:id="usernameLabel" layoutX="105.0" layoutY="124.0" prefHeight="48.0" prefWidth="209.0" text="User Name" textFill="#1c657c">
+                     <font>
+                        <Font name="Bell MT" size="44.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="firstnameLabel" layoutX="102.0" layoutY="201.0" prefHeight="43.0" prefWidth="209.0" text="First Name" textFill="#1c657c">
+                     <font>
+                        <Font name="Bell MT" size="38.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastnameLabel" layoutX="96.0" layoutY="283.0" prefHeight="47.0" prefWidth="209.0" text="Last Name" textFill="#1c657c">
+                     <font>
+                        <Font name="Bell MT" size="42.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="emailLabel" layoutX="96.0" layoutY="357.0" prefHeight="47.0" prefWidth="228.0" text="Email Address" textFill="#1c657c">
+                     <font>
+                        <Font name="Bell MT" size="37.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="phoneLabel" layoutX="88.0" layoutY="430.0" prefHeight="47.0" prefWidth="235.0" text="Phone Number" textFill="#1c657c">
+                     <font>
+                        <Font name="Bell MT" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="shippingLabel" layoutX="61.0" layoutY="509.0" prefHeight="53.0" prefWidth="285.0" text="Shipping Address" textFill="#1c657c">
+                     <font>
+                        <Font name="Bell MT" size="39.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="typeLabel" layoutX="84.0" layoutY="599.0" prefHeight="50.0" prefWidth="209.0" text="      Type" textAlignment="CENTER" textFill="#1c657c">
+                     <font>
+                        <Font name="Bell MT" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="passwordLabel" layoutX="87.0" layoutY="683.0" prefHeight="61.0" prefWidth="228.0" text="Password" textFill="#1c657c">
+                     <font>
+                        <Font name="Bell MT" size="51.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="profile" layoutX="102.0" layoutY="25.0" prefHeight="54.0" prefWidth="524.0" text="         My Profile" textFill="#1c657c">
+                     <font>
+                        <Font name="Bodoni MT" size="63.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="done" layoutX="673.0" layoutY="774.0" mnemonicParsing="false" onAction="#done" prefHeight="38.0" prefWidth="128.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: center; -fx-background-size: cover;" text="Done" textFill="#1c657c">
+                     <font>
+                        <Font name="Bell MT" size="33.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="usernameText" alignment="CENTER" layoutX="415.0" layoutY="123.0" prefHeight="50.0" prefWidth="318.0" promptText="UserName">
+                     <font>
+                        <Font name="Andalus" size="23.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="firstnameText" alignment="CENTER" layoutX="415.0" layoutY="201.0" prefHeight="50.0" prefWidth="318.0" promptText="FirstName">
+                     <font>
+                        <Font name="Andalus" size="22.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="lastnameText" alignment="CENTER" layoutX="415.0" layoutY="280.0" prefHeight="48.0" prefWidth="318.0" promptText="LastName">
+                     <font>
+                        <Font name="Andalus" size="21.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="emailText" alignment="CENTER" layoutX="415.0" layoutY="357.0" prefHeight="50.0" prefWidth="318.0" promptText="EmailAddress">
+                     <font>
+                        <Font name="Andalus" size="21.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="phoneText" alignment="CENTER" layoutX="419.0" layoutY="430.0" prefHeight="50.0" prefWidth="318.0" promptText="PhoneNumber">
+                     <font>
+                        <Font name="Andalus" size="23.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="shippingText" alignment="CENTER" layoutX="416.0" layoutY="514.0" prefHeight="51.0" prefWidth="318.0" promptText="ShippingAddress">
+                     <font>
+                        <Font name="Andalus" size="23.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="typeText" alignment="CENTER" layoutX="419.0" layoutY="602.0" prefHeight="50.0" prefWidth="318.0" promptText="Type">
+                     <font>
+                        <Font name="Andalus" size="22.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="passwordText" alignment="CENTER" layoutX="419.0" layoutY="694.0" prefHeight="51.0" prefWidth="318.0" promptText="Password">
+                     <font>
+                        <Font name="Andalus" size="23.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
