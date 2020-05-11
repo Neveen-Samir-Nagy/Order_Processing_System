@@ -4,6 +4,9 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -102,6 +105,14 @@
                   <Font size="24.0" />
                </font>
             </TextField>
+            <ImageView fx:id="arrow" fitHeight="31.0" fitWidth="31.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@arrow.png" />
+               </image>
+               <effect>
+                  <Blend opacity="0.37" />
+               </effect>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
