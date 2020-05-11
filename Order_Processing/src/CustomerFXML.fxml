@@ -41,34 +41,34 @@
                      </items></Menu>
                   <Menu fx:id="view" mnemonicParsing="false" text="View">
                      <items>
-                        <MenuItem fx:id="viewItem" mnemonicParsing="false" text="Items" />
-                        <MenuItem fx:id="viewIndividualItem" mnemonicParsing="false" text="Individual And Total Price of Books" />
+                        <MenuItem fx:id="viewItem" mnemonicParsing="false" onAction="#view_items" text="Items" />
+                        <MenuItem fx:id="viewIndividualItem" mnemonicParsing="false" onAction="#view_IndividualAndTotalPriceofBooks" text="Individual And Total Price of Books" />
                      </items>
                   </Menu>
                   <Menu fx:id="insert" mnemonicParsing="false" text="Insert">
                      <items>
                         <Menu fx:id="category1" mnemonicParsing="false" text="Category">
                            <items>
-                              <MenuItem fx:id="science1" mnemonicParsing="false" text="Science" />
-                              <MenuItem fx:id="art1" mnemonicParsing="false" text="Art" />
-                              <MenuItem fx:id="religion1" mnemonicParsing="false" text="Religion" />
-                              <MenuItem fx:id="history1" mnemonicParsing="false" text="History" />
-                              <MenuItem fx:id="geography1" mnemonicParsing="false" text="Geography" />
+                              <MenuItem fx:id="science1" mnemonicParsing="false" onAction="#insert_Book" text="Science" />
+                              <MenuItem fx:id="art1" mnemonicParsing="false" onAction="#insert_Book" text="Art" />
+                              <MenuItem fx:id="religion1" mnemonicParsing="false" onAction="#insert_Book" text="Religion" />
+                              <MenuItem fx:id="history1" mnemonicParsing="false" onAction="#insert_Book" text="History" />
+                              <MenuItem fx:id="geography1" mnemonicParsing="false" onAction="#insert_Book" text="Geography" />
                            </items>
                         </Menu>
                         <MenuItem fx:id="searchPublisher1" mnemonicParsing="false" text="Publisher">
                            <graphic>
-                              <TextField fx:id="publisherText1" />
+                              <TextField fx:id="publisherText1" onAction="#insert_Book" />
                            </graphic>
                         </MenuItem>
                         <MenuItem fx:id="searchAuthor1" mnemonicParsing="false" text="Author">
                            <graphic>
-                              <TextField fx:id="authorText1" />
+                              <TextField fx:id="authorText1" onAction="#insert_Book" />
                            </graphic>
                         </MenuItem>
                         <MenuItem fx:id="searchISBN_Title1" mnemonicParsing="false" text="ISBN &amp; Title">
                            <graphic>
-                              <TextField fx:id="ISBN_Title_Text1" />
+                              <TextField fx:id="ISBN_Title_Text1" onAction="#insert_Book" />
                            </graphic>
                         </MenuItem>
                      </items></Menu>
@@ -76,26 +76,26 @@
                      <items>
                         <Menu fx:id="category" mnemonicParsing="false" text="Category">
                            <items>
-                              <MenuItem fx:id="science" mnemonicParsing="false" text="Science" />
-                              <MenuItem fx:id="art" mnemonicParsing="false" text="Art" />
-                              <MenuItem fx:id="religion" mnemonicParsing="false" text="Religion" />
-                              <MenuItem fx:id="history" mnemonicParsing="false" text="History" />
-                              <MenuItem fx:id="geography" mnemonicParsing="false" text="Geography" />
+                              <MenuItem fx:id="science" mnemonicParsing="false" onAction="#search_forBook" text="Science" />
+                              <MenuItem fx:id="art" mnemonicParsing="false" onAction="#search_forBook" text="Art" />
+                              <MenuItem fx:id="religion" mnemonicParsing="false" onAction="#search_forBook" text="Religion" />
+                              <MenuItem fx:id="history" mnemonicParsing="false" onAction="#search_forBook" text="History" />
+                              <MenuItem fx:id="geography" mnemonicParsing="false" onAction="#search_forBook" text="Geography" />
                            </items>
                         </Menu>
                         <MenuItem fx:id="searchPublisher" mnemonicParsing="false" text="Publisher">
                            <graphic>
-                              <TextField fx:id="publisherText" />
+                              <TextField fx:id="publisherText" onAction="#search_forBook" />
                            </graphic>
                         </MenuItem>
                         <MenuItem fx:id="searchAuthor" mnemonicParsing="false" text="Author">
                            <graphic>
-                              <TextField fx:id="authorText" />
+                              <TextField fx:id="authorText" onAction="#search_forBook" />
                            </graphic>
                         </MenuItem>
                         <MenuItem fx:id="searchISBN_Title" mnemonicParsing="false" text="ISBN &amp; Title">
                            <graphic>
-                              <TextField fx:id="ISBN_Title_Text" />
+                              <TextField fx:id="ISBN_Title_Text" onAction="#search_forBook" />
                            </graphic>
                         </MenuItem>
                      </items>
@@ -104,7 +104,7 @@
                      <items>
                         <MenuItem fx:id="updateItem" mnemonicParsing="false" text="Update Book" />
                      </items></Menu>
-                  <Menu fx:id="delete" mnemonicParsing="false" text="Delete">
+                  <Menu fx:id="delete" mnemonicParsing="false" onAction="#remove_booksFromCart" text="Delete">
                      <items>
                         <MenuItem fx:id="deleteItem" mnemonicParsing="false" text="Remove Book" />
                      </items></Menu>

@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -22,7 +26,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ControllerMangers {
 
@@ -88,8 +95,6 @@ public class ControllerMangers {
 	@FXML
 	MenuItem addItem = new MenuItem();
 	@FXML
-	MenuItem modifyItem = new MenuItem();
-	@FXML
 	MenuItem placeOrderItem = new MenuItem();
 	@FXML
 	MenuItem confirmOrderItem = new MenuItem();
@@ -109,59 +114,206 @@ public class ControllerMangers {
 	Label shippingCart = new Label();
 	@FXML
 	ListView<String> list_Books = new ListView<String>();
-	
-    public void editInformation(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("Edit.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.getIcons().add(new Image("DB.jpg"));
-        stage.setScene(scene);
-        stage.show();
+
+	public void editInformation(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("Edit.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = new Stage();
+		stage.getIcons().add(new Image("DB.jpg"));
+		stage.setScene(scene);
+		stage.show();
 	}
-    
-    public void profile(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.getIcons().add(new Image("DB.jpg"));
-        stage.setScene(scene);
-        stage.show();
+
+	public void profile(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = new Stage();
+		stage.getIcons().add(new Image("DB.jpg"));
+		stage.setScene(scene);
+		stage.show();
 	}
-	
+
 	public void options(ActionEvent event) throws IOException {
-		
+
 	}
-	
+
 	public void search_forBook(ActionEvent event) throws IOException {
-		
+		boolean found = true;
+		if (found) {
+			Pane rootPane = new Pane();
+			ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
+			ListView<String> listView = new ListView<String>();
+			listView.setItems(listChoices);
+			rootPane.getChildren().add(listView);
+			Stage newDialog = new Stage(StageStyle.UNIFIED);
+			newDialog.getIcons().add(new Image("DB.jpg"));
+			listView.setPrefWidth(800);
+			listView.setPrefHeight(500);
+			newDialog.setMinHeight(500);
+			newDialog.setMinWidth(800);
+			newDialog.initModality(Modality.APPLICATION_MODAL);
+			newDialog.setTitle("Book");
+			Scene newDialogScene = new Scene(rootPane);
+			newDialog.setScene(newDialogScene);
+			newDialog.show();
+		} else {
+			Alert a = new Alert(AlertType.NONE);
+			// set alert type
+			a.setAlertType(AlertType.ERROR);
+			// set content text
+			a.setContentText("No Specified Book");
+			// show the dialog
+			a.show();
+		}
 	}
-	
-   public void add_Book(ActionEvent event) throws IOException {
-	   
+
+	public void insert_Book(ActionEvent event) throws IOException {
+		boolean found = true;
+		if (found) {
+			ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
+			listChoices.add("merna");
+			list_Books.setItems(listChoices);
+		} else {
+			Alert a = new Alert(AlertType.NONE);
+			// set alert type
+			a.setAlertType(AlertType.ERROR);
+			// set content text
+			a.setContentText("No Specified Book");
+			// show the dialog
+			a.show();
+		}
 	}
-   
-   public void logOut(ActionEvent event) throws IOException {
-	    Parent loader = FXMLLoader.load(getClass().getResource("Sign_IN.fxml"));
+
+	public void logOut(ActionEvent event) throws IOException {
+		Parent loader = FXMLLoader.load(getClass().getResource("Sign_IN.fxml"));
 		Scene scene = new Scene(loader);
 		Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
 		app.setScene(scene);
 		app.show();
 	}
-    
-   public void Manage1(ActionEvent event) throws IOException {
-		
+
+	public void Manage1(ActionEvent event) throws IOException {
+
 	}
-   public void Manage2(ActionEvent event) throws IOException {
-		
+
+	public void Manage2(ActionEvent event) throws IOException {
+
 	}
-   public void Manage3(ActionEvent event) throws IOException {
-		
+
+	public void Manage3(ActionEvent event) throws IOException {
+
 	}
-   
-   public void checkOut1(ActionEvent event) throws IOException {
-		
+
+	public void checkOut1(ActionEvent event) throws IOException {
+
 	}
-   public void checkOut2(ActionEvent event) throws IOException {
-		
+
+	public void checkOut2(ActionEvent event) throws IOException {
+
+	}
+
+	public void remove_booksFromCart(ActionEvent event) {
+		list_Books.getItems().remove(list_Books.getSelectionModel().getSelectedItem());
+	}
+	
+	public void view_items(ActionEvent event) {
+		Pane rootPane = new Pane();
+		ObservableList<String> listChoices = FXCollections.observableArrayList(list_Books.getItems());
+		ListView<String> listView = new ListView<String>();
+		listView.setItems(listChoices);
+		rootPane.getChildren().add(listView);
+		Stage newDialog = new Stage(StageStyle.UNIFIED);
+		newDialog.getIcons().add(new Image("DB.jpg"));
+		listView.setPrefWidth(800);
+		listView.setPrefHeight(500);
+		newDialog.setMinHeight(500);
+		newDialog.setMinWidth(800);
+		newDialog.initModality(Modality.APPLICATION_MODAL);
+		newDialog.setTitle("My Books");
+		Scene newDialogScene = new Scene(rootPane);
+		newDialog.setScene(newDialogScene);
+		newDialog.show();
+	}
+	public void View_IndividualAndTotalPriceofBooks(ActionEvent event) {
+		Pane rootPane = new Pane();
+		ObservableList<String> listChoices = null;
+		ListView<String> listView = new ListView<String>();
+		listView.setItems(listChoices);
+		rootPane.getChildren().add(listView);
+		Stage newDialog = new Stage(StageStyle.UNIFIED);
+		newDialog.getIcons().add(new Image("DB.jpg"));
+		listView.setPrefWidth(800);
+		listView.setPrefHeight(500);
+		newDialog.setMinHeight(500);
+		newDialog.setMinWidth(800);
+		newDialog.initModality(Modality.APPLICATION_MODAL);
+		newDialog.setTitle("Individual And Total Price of Books");
+		Scene newDialogScene = new Scene(rootPane);
+		newDialog.setScene(newDialogScene);
+		newDialog.show();
+	}
+	
+	public void add_newBook(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("New_Book.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = new Stage();
+		stage.getIcons().add(new Image("DB.jpg"));
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	public void view_Report1(ActionEvent event) {
+		Pane rootPane = new Pane();
+		ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
+		ListView<String> listView = new ListView<String>();
+		listView.setItems(listChoices);
+		rootPane.getChildren().add(listView);
+		Stage newDialog = new Stage(StageStyle.UNIFIED);
+		newDialog.getIcons().add(new Image("DB.jpg"));
+		listView.setPrefWidth(800);
+		listView.setPrefHeight(500);
+		newDialog.setMinHeight(500);
+		newDialog.setMinWidth(800);
+		newDialog.initModality(Modality.APPLICATION_MODAL);
+		newDialog.setTitle("Total Prices");
+		Scene newDialogScene = new Scene(rootPane);
+		newDialog.setScene(newDialogScene);
+		newDialog.show();
+	}
+	public void view_Report2(ActionEvent event) {
+		Pane rootPane = new Pane();
+		ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
+		ListView<String> listView = new ListView<String>();
+		listView.setItems(listChoices);
+		rootPane.getChildren().add(listView);
+		Stage newDialog = new Stage(StageStyle.UNIFIED);
+		newDialog.getIcons().add(new Image("DB.jpg"));
+		listView.setPrefWidth(800);
+		listView.setPrefHeight(500);
+		newDialog.setMinHeight(500);
+		newDialog.setMinWidth(800);
+		newDialog.initModality(Modality.APPLICATION_MODAL);
+		newDialog.setTitle("Top 5 Customers");
+		Scene newDialogScene = new Scene(rootPane);
+		newDialog.setScene(newDialogScene);
+		newDialog.show();
+	}
+	public void view_Report3(ActionEvent event) {
+		Pane rootPane = new Pane();
+		ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
+		ListView<String> listView = new ListView<String>();
+		listView.setItems(listChoices);
+		rootPane.getChildren().add(listView);
+		Stage newDialog = new Stage(StageStyle.UNIFIED);
+		newDialog.getIcons().add(new Image("DB.jpg"));
+		listView.setPrefWidth(800);
+		listView.setPrefHeight(500);
+		newDialog.setMinHeight(500);
+		newDialog.setMinWidth(800);
+		newDialog.initModality(Modality.APPLICATION_MODAL);
+		newDialog.setTitle("Top 10 Selling Books");
+		Scene newDialogScene = new Scene(rootPane);
+		newDialog.setScene(newDialogScene);
+		newDialog.show();
 	}
 }
