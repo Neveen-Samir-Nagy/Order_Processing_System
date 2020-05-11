@@ -31,7 +31,7 @@
             </Button>
             <MenuBar fx:id="menu" layoutX="1.0" prefHeight="40.0" prefWidth="1197.0" style="-fx-background-image: url(&quot;Book.jepg&quot;); -fx-background-position: center;">
                <menus>
-                  <Menu fx:id="profile" mnemonicParsing="false" text="Profile">
+                  <Menu fx:id="profile" mnemonicParsing="false" onAction="#profile" text="Profile">
                      <items>
                         <MenuItem fx:id="profileItem" mnemonicParsing="false" text="View My Profile" />
                      </items>
@@ -49,7 +49,30 @@
                   </Menu>
                   <Menu fx:id="insert" mnemonicParsing="false" text="Insert">
                      <items>
-                        <MenuItem fx:id="insertItem" mnemonicParsing="false" text="Insert Book" />
+                        <Menu fx:id="category1" mnemonicParsing="false" text="Category">
+                           <items>
+                              <MenuItem fx:id="science1" mnemonicParsing="false" text="Science" />
+                              <MenuItem fx:id="art1" mnemonicParsing="false" text="Art" />
+                              <MenuItem fx:id="religion1" mnemonicParsing="false" text="Religion" />
+                              <MenuItem fx:id="history1" mnemonicParsing="false" text="History" />
+                              <MenuItem fx:id="geography1" mnemonicParsing="false" text="Geography" />
+                           </items>
+                        </Menu>
+                        <MenuItem fx:id="searchPublisher1" mnemonicParsing="false" text="Publisher">
+                           <graphic>
+                              <TextField fx:id="publisherText1" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="searchAuthor1" mnemonicParsing="false" text="Author">
+                           <graphic>
+                              <TextField fx:id="authorText1" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="searchISBN_Title1" mnemonicParsing="false" text="ISBN &amp; Title">
+                           <graphic>
+                              <TextField fx:id="ISBN_Title_Text1" />
+                           </graphic>
+                        </MenuItem>
                      </items>
                   </Menu>
                   <Menu fx:id="search" mnemonicParsing="false" text="Search">

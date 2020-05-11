@@ -34,6 +34,7 @@ public class ControllerSignIn {
 	TextField Type = new TextField();
 
 	SignInAndUp sign = new SignInAndUp();
+	ControllerCustomers cm = new ControllerCustomers();
 
 	public void Sign_in(ActionEvent event) throws IOException {
 		boolean result = true;
@@ -67,4 +68,6 @@ public class ControllerSignIn {
 		app.setScene(scene);
 		app.show();
 	}
+	
+	
 }

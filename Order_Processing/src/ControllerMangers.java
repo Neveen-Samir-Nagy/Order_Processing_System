@@ -76,8 +76,6 @@ public class ControllerMangers {
 	@FXML
 	MenuItem searchISBN_Title = new MenuItem();
 	@FXML
-	MenuItem insertItem = new MenuItem();
-	@FXML
 	MenuItem science = new MenuItem();
 	@FXML
 	MenuItem art = new MenuItem();
@@ -114,6 +112,15 @@ public class ControllerMangers {
 	
     public void editInformation(ActionEvent event) throws IOException {
     	Parent root = FXMLLoader.load(getClass().getResource("Edit.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.getIcons().add(new Image("DB.jpg"));
+        stage.setScene(scene);
+        stage.show();
+	}
+    
+    public void profile(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.getIcons().add(new Image("DB.jpg"));
