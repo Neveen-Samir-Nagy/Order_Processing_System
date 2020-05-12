@@ -12,7 +12,7 @@ public class MainGui extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		Parent root = FXMLLoader.load(getClass().getResource("Sign_IN.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("ManagerFXML.fxml"));
 		Scene scence = new Scene(root);
 		primaryStage.getIcons().add(new Image("DB.jpg"));
 		primaryStage.setTitle("Order processing System");
@@ -20,12 +20,8 @@ public class MainGui extends Application{
 		primaryStage.show();
 	}
 
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
-
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection(  
-				    "jdbc:oracle:thin:@localhost:1521:xe","system","password");
-			Statement stmt=con.createStatement();  
+	public static void main(String[] args)  {
+ 
 		    launch(args);
 	}
 }
