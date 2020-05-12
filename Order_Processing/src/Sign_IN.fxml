@@ -13,9 +13,9 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0">
          <children>
-            <AnchorPane layoutX="-10.0" layoutY="-10.0" prefHeight="737.0" prefWidth="784.0" style="-fx-background-image: url(&quot;welcome2.JPG&quot;); -fx-background-repeat: stretch; -fx-background-size: cover; -fx-background-position: left top,center;">
+            <AnchorPane layoutX="-10.0" layoutY="-10.0" prefHeight="737.0" prefWidth="784.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-repeat: stretch; -fx-background-size: cover; -fx-background-position: left top,center;">
                <children>
-                  <Button fx:id="log_in" layoutX="291.0" layoutY="556.0" mnemonicParsing="false" onAction="#Sign_in" prefHeight="59.0" prefWidth="221.0" style="-fx-background-image: url(&quot;welcome.JPG&quot;);" text="LOG IN" textFill="DARKSLATEGRAY">
+                  <Button fx:id="log_in" layoutX="339.0" layoutY="552.0" mnemonicParsing="false" onAction="#Sign_in" prefHeight="65.0" prefWidth="153.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: center; -fx-background-size: cover;" text="LOG IN" textFill="DARKSLATEGRAY">
                      <font>
                         <Font name="Britannic Bold" size="28.0" />
                      </font>
@@ -30,7 +30,7 @@
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="register" layoutX="629.0" layoutY="25.0" mnemonicParsing="false" onAction="#sign_UP" prefHeight="59.0" prefWidth="145.0" style="-fx-background-image: url(&quot;welcome.JPG&quot;);" text="Register" textFill="DIMGRAY">
+                  <Button fx:id="register" layoutX="629.0" layoutY="25.0" mnemonicParsing="false" onAction="#sign_UP" prefHeight="59.0" prefWidth="145.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: center; -fx-background-size: cover;" text="Register" textFill="DIMGRAY">
                      <font>
                         <Font name="Britannic Bold" size="25.0" />
                      </font>
