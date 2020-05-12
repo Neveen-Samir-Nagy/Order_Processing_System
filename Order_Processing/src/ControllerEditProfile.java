@@ -4,7 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ControllerEditProfile {
@@ -31,7 +34,7 @@ public class ControllerEditProfile {
 	@FXML
 	TextField usernameText = new TextField();
 	@FXML
-	TextField passwordText = new TextField();
+	PasswordField passwordText = new PasswordField();
 	@FXML
 	TextField typeText = new TextField();
 	@FXML
@@ -44,9 +47,24 @@ public class ControllerEditProfile {
 	TextField emailText = new TextField();
 	@FXML
 	TextField shippingText = new TextField();
+	@FXML
+	ImageView eye = new ImageView();
+	@FXML
+	Label hide = new Label();
+	
+	SingletonClasses s2 = SingletonClasses.getoneclass();
 	
 	public void done(ActionEvent event) throws IOException {
 		Stage stage = (Stage) done.getScene().getWindow();
 	    stage.close();
+	}
+	public void show_password(MouseEvent event) {
+		String get_pass = passwordText.getText();
+		hide.setText(get_pass);
+		if(hide.isVisible()) {
+			hide.setVisible(false);
+		}else {
+			hide.setVisible(true);
+		}
 	}
 }

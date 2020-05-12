@@ -43,6 +43,8 @@ public class ControllerProfile {
 	@FXML
 	ImageView back = new ImageView();
 	
+	SingletonClasses s2 = SingletonClasses.getoneclass();
+	
 	public void done(MouseEvent event) throws IOException {
 		Stage stage = (Stage) back.getScene().getWindow();
 	    stage.close();

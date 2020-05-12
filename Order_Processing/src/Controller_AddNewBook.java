@@ -41,6 +41,8 @@ public class Controller_AddNewBook {
 	@FXML
 	TextField authorText = new TextField();
 	
+	SingletonClasses s2 = SingletonClasses.getoneclass();
+	
 	public void done(ActionEvent event) throws IOException {
 		Stage stage = (Stage) add.getScene().getWindow();
 	    stage.close();

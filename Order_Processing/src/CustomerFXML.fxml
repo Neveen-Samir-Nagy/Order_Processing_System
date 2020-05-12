@@ -7,6 +7,8 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -123,6 +125,76 @@
             <Label fx:id="shippingCart" layoutX="995.0" layoutY="40.0" prefHeight="40.0" prefWidth="200.0" text="My Shipping Cart" textFill="PALEVIOLETRED">
                <font>
                   <Font name="Cooper Black" size="21.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="115.0" prefHeight="21.0" prefWidth="103.0" text="Science Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="217.0" prefHeight="21.0" prefWidth="103.0" text="Art Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="19.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="322.0" prefHeight="21.0" prefWidth="103.0" text="History Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="428.0" prefHeight="21.0" prefWidth="103.0" text="Religion Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="531.0" prefHeight="21.0" prefWidth="125.0" text="Geography Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="562.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="633.0" prefHeight="21.0" prefWidth="125.0" text="Language Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="16.0" layoutY="672.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="16.0" layoutY="743.0" prefHeight="21.0" prefWidth="103.0" text="Other Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="18.0" />
                </font>
             </Label>
          </children>
