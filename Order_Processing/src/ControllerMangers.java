@@ -116,7 +116,7 @@ public class ControllerMangers {
 	TextField dateText = new TextField();
 	@FXML
 	ListView<String> list_Books = new ListView<String>();
-
+	
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 
 	public void editInformation(ActionEvent event) throws IOException {
