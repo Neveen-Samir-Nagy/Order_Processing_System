@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerMangers">
    <children>
       <AnchorPane prefHeight="776.0" prefWidth="1237.0" style="-fx-background-image: url(&quot;Book.jpeg&quot;); -fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-position: left top,center;">
+=======
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerMangers">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="4.0" prefHeight="773.0" prefWidth="1198.0" style="-fx-background-image: url(&quot;Book.jpeg&quot;); -fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-position: left top,center; visibility: true;">
+>>>>>>> ae1a2ba009b942119abb4a5dec4ede525ed68cd9
          <children>
-            <ButtonBar layoutX="102.0" layoutY="324.0" prefHeight="40.0" prefWidth="70.0" />
-            <ButtonBar layoutX="311.0" layoutY="339.0" prefHeight="40.0" prefWidth="125.0" />
-            <Button fx:id="log_out" layoutX="1060.0" layoutY="699.0" mnemonicParsing="false" onAction="#logOut" prefHeight="48.0" prefWidth="103.0" style="-fx-background-color: #BC8F8F;" text="LOG OUT">
+            <Button fx:id="log_out" layoutX="1051.0" layoutY="700.0" mnemonicParsing="false" onAction="#logOut" prefHeight="48.0" prefWidth="103.0" style="-fx-background-color: #BC8F8F;" text="LOG OUT">
                <font>
                   <Font name="Britannic Bold" size="17.0" />
                </font>
@@ -34,43 +39,98 @@
             </Button>
             <MenuBar fx:id="menu" prefHeight="40.0" prefWidth="1197.0" style="-fx-background-image: url(&quot;Book.jepg&quot;); -fx-background-position: center;">
                <menus>
+<<<<<<< HEAD
                   <Menu mnemonicParsing="false" text="Profile" />
                   <Menu mnemonicParsing="false" text="Edit" />
                   <Menu mnemonicParsing="false" text="View">
+=======
+                  <Menu fx:id="profile" mnemonicParsing="false" onAction="#profile" text="Profile">
+>>>>>>> ae1a2ba009b942119abb4a5dec4ede525ed68cd9
                      <items>
-                        <Menu mnemonicParsing="false" text="Items" />
-                        <Menu mnemonicParsing="false" text="Individual And Total Price of Books" />
+                        <MenuItem fx:id="profileItem" mnemonicParsing="false" text="View My Profile" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Insert" />
-                  <Menu mnemonicParsing="false" text="Search">
+                  <Menu fx:id="edit" mnemonicParsing="false" onAction="#editInformation" text="Edit">
                      <items>
-                        <Menu mnemonicParsing="false" text="Category">
+                        <MenuItem fx:id="editItem" mnemonicParsing="false" text="Edit My Profile" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="view" mnemonicParsing="false" text="View">
+                     <items>
+                        <MenuItem fx:id="viewItem" mnemonicParsing="false" onAction="#view_items" text="Items" />
+                        <MenuItem fx:id="viewIndividualItem" mnemonicParsing="false" onAction="#View_IndividualAndTotalPriceofBooks" text="Individual And Total Price of Books" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="insert" mnemonicParsing="false" text="Insert">
+                     <items>
+                        <Menu fx:id="category1" mnemonicParsing="false" text="Category">
                            <items>
-                              <Menu mnemonicParsing="false" text="Science" />
-                              <Menu mnemonicParsing="false" text="Art" />
-                              <Menu mnemonicParsing="false" text="Religion" />
-                              <Menu mnemonicParsing="false" text="History" />
-                              <Menu mnemonicParsing="false" text="Geography" />
+                              <MenuItem fx:id="science1" mnemonicParsing="false" onAction="#insert_Book" text="Science" />
+                              <MenuItem fx:id="art1" mnemonicParsing="false" onAction="#insert_Book" text="Art" />
+                              <MenuItem fx:id="religion1" mnemonicParsing="false" onAction="#insert_Book" text="Religion" />
+                              <MenuItem fx:id="history1" mnemonicParsing="false" onAction="#insert_Book" text="History" />
+                              <MenuItem fx:id="geography1" mnemonicParsing="false" onAction="#insert_Book" text="Geography" />
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Publisher">
+                        <MenuItem fx:id="searchPublisher1" mnemonicParsing="false" text="Publisher">
                            <graphic>
-                              <TextField />
+                              <TextField fx:id="publisherText1" onAction="#insert_Book" />
                            </graphic>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Author">
+                        </MenuItem>
+                        <MenuItem fx:id="searchAuthor1" mnemonicParsing="false" text="Author">
                            <graphic>
-                              <TextField />
+                              <TextField fx:id="authorText1" onAction="#insert_Book" />
                            </graphic>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="ISBN &amp; Title">
+                        </MenuItem>
+                        <MenuItem fx:id="searchISBN_Title1" mnemonicParsing="false" text="ISBN &amp; Title">
                            <graphic>
-                              <TextField />
+                              <TextField fx:id="ISBN_Title_Text1" onAction="#insert_Book" />
                            </graphic>
-                        </Menu>
+                        </MenuItem>
                      </items>
                   </Menu>
+                  <Menu fx:id="search" mnemonicParsing="false" text="Search">
+                     <items>
+                        <Menu fx:id="category" mnemonicParsing="false" text="Category">
+                           <items>
+                              <MenuItem fx:id="science" mnemonicParsing="false" onAction="#search_forBook" text="Science" />
+                              <MenuItem fx:id="art" mnemonicParsing="false" onAction="#search_forBook" text="Art" />
+                              <MenuItem fx:id="religion" mnemonicParsing="false" onAction="#search_forBook" text="Religion" />
+                              <MenuItem fx:id="history" mnemonicParsing="false" onAction="#search_forBook" text="History" />
+                              <MenuItem fx:id="geography" mnemonicParsing="false" onAction="#search_forBook" text="Geography" />
+                           </items>
+                        </Menu>
+                        <MenuItem fx:id="searchPublisher" mnemonicParsing="false" text="Publisher">
+                           <graphic>
+                              <TextField fx:id="publisherText" onAction="#search_forBook" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="searchAuthor" mnemonicParsing="false" text="Author">
+                           <graphic>
+                              <TextField fx:id="authorText" onAction="#search_forBook" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="searchISBN_Title" mnemonicParsing="false" text="ISBN &amp; Title">
+                           <graphic>
+                              <TextField fx:id="ISBN_Title_Text" onAction="#search_forBook" />
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+                  <Menu fx:id="checkOut" mnemonicParsing="false" text="CheckOut">
+                     <items>
+                        <MenuItem fx:id="creditCard_Item" mnemonicParsing="false" text="Credit Card Number">
+                           <graphic>
+                              <TextField fx:id="creditCardText" onAction="#checkOut" />
+                           </graphic></MenuItem>
+                        <MenuItem fx:id="date_Item" mnemonicParsing="false" text="Date">
+                           <graphic>
+                              <TextField fx:id="dateText" onAction="#checkOut" />
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+<<<<<<< HEAD
                   <Menu mnemonicParsing="false" text="Update" />
                   <Menu mnemonicParsing="false" text="Delete" />
                   <Menu fx:id="add" mnemonicParsing="false" text="Add">
@@ -81,19 +141,144 @@
                   <Menu mnemonicParsing="false" text="Place Order" />
                   <Menu mnemonicParsing="false" text="Confirm Order" />
                   <Menu mnemonicParsing="false" text="View Report">
+=======
+                  <Menu fx:id="delete" mnemonicParsing="false" onAction="#remove_booksFromCart" text="Delete">
+>>>>>>> ae1a2ba009b942119abb4a5dec4ede525ed68cd9
                      <items>
-                        <Menu mnemonicParsing="false" text="Total Sales" />
-                        <Menu mnemonicParsing="false" text="Top 5 Customers" />
-                        <Menu mnemonicParsing="false" text="Top 10 Selling Books" />
+                        <MenuItem fx:id="deleteItem" mnemonicParsing="false" text="Remove Book" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Help" />
+                  <Menu fx:id="add" mnemonicParsing="false" onAction="#add_newBook" text="Add">
+                     <items>
+                        <MenuItem fx:id="addItem" mnemonicParsing="false" text="Add new Book" />
+                     </items></Menu>
+                  <Menu fx:id="modify" mnemonicParsing="false" text="Modify">
+                     <items>
+                        <Menu fx:id="category2" mnemonicParsing="false" text="Category">
+                           <items>
+                              <MenuItem fx:id="science2" mnemonicParsing="false" onAction="#modify_Book" text="Science" />
+                              <MenuItem fx:id="art2" mnemonicParsing="false" onAction="#modify_Book" text="Art" />
+                              <MenuItem fx:id="religion2" mnemonicParsing="false" onAction="#modify_Book" text="Religion" />
+                              <MenuItem fx:id="history2" mnemonicParsing="false" onAction="#modify_Book" text="History" />
+                              <MenuItem fx:id="geography2" mnemonicParsing="false" onAction="#modify_Book" text="Geography" />
+                           </items>
+                        </Menu>
+                        <MenuItem fx:id="searchPublisher2" mnemonicParsing="false" text="Publisher">
+                           <graphic>
+                              <TextField fx:id="publisherText2" onAction="#modify_Book" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="searchAuthor2" mnemonicParsing="false" text="Author">
+                           <graphic>
+                              <TextField fx:id="authorText2" onAction="#modify_Book" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="searchISBN_Title2" mnemonicParsing="false" text="ISBN &amp; Title">
+                           <graphic>
+                              <TextField fx:id="ISBN_Title_Text2" onAction="#modify_Book" />
+                           </graphic>
+                        </MenuItem>
+                     </items></Menu>
+                  <Menu fx:id="placeOrder" mnemonicParsing="false" onAction="#place_Order" text="Place Order">
+                     <items>
+                        <MenuItem fx:id="ID_BookOrder" mnemonicParsing="false" text="ID of the Book">
+                           <graphic>
+                              <TextField fx:id="id_OrderBookText" />
+                           </graphic></MenuItem>
+                        <MenuItem fx:id="quantity" mnemonicParsing="false" text="Quantity">
+                           <graphic>
+                              <TextField fx:id="quantityText" />
+                           </graphic>
+                        </MenuItem>
+                     </items></Menu>
+                  <Menu fx:id="confirmOrder" mnemonicParsing="false" text="Confirm Order">
+                     <items>
+                        <MenuItem fx:id="confirmOrderItem" mnemonicParsing="false" onAction="#confirm_Order" text="Confirm Order" />
+                     </items></Menu>
+                  <Menu fx:id="viewReport" mnemonicParsing="false" text="View Report">
+                     <items>
+                        <MenuItem fx:id="totalSalesReport" mnemonicParsing="false" onAction="#view_Report1" text="Total Sales" />
+                        <MenuItem fx:id="topFiveCustomerReport" mnemonicParsing="false" onAction="#view_Report2" text="Top 5 Customers" />
+                        <MenuItem fx:id="topTenBooksReport" mnemonicParsing="false" onAction="#view_Report3" text="Top 10 Selling Books" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="help" mnemonicParsing="false" text="Help" />
                </menus>
             </MenuBar>
-            <ListView layoutX="995.0" layoutY="89.0" prefHeight="596.0" prefWidth="200.0" style="-fx-background-image: url(&quot;Book.jpeg&quot;); -fx-background-position: right bottom;" />
-            <Label layoutX="995.0" layoutY="40.0" prefHeight="40.0" prefWidth="200.0" text="My Shipping Cart" textFill="PALEVIOLETRED">
+            <ListView fx:id="list_Books" layoutX="992.0" layoutY="89.0" prefHeight="596.0" prefWidth="192.0" style="-fx-background-image: url(&quot;Book.jpeg&quot;); -fx-background-position: right bottom;" />
+            <Label fx:id="shippingCart" layoutX="995.0" layoutY="40.0" prefHeight="40.0" prefWidth="200.0" text="My Shipping Cart" textFill="PALEVIOLETRED">
                <font>
                   <Font name="Cooper Black" size="21.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="110.0" prefHeight="21.0" prefWidth="103.0" text="Science Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="212.0" prefHeight="21.0" prefWidth="103.0" text="Art Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="19.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="317.0" prefHeight="21.0" prefWidth="103.0" text="History Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="423.0" prefHeight="21.0" prefWidth="103.0" text="Religion Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="526.0" prefHeight="21.0" prefWidth="125.0" text="Geography Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="14.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="628.0" prefHeight="21.0" prefWidth="125.0" text="Language Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="16.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zip.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="16.0" layoutY="738.0" prefHeight="21.0" prefWidth="103.0" text="Other Books" textFill="#9d520b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="18.0" />
                </font>
             </Label>
          </children>

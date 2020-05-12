@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,11 +9,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ControllerSignUp {
-
+	
+	@FXML
+	ImageView arrow = new ImageView();
 	@FXML
 	Button finish = new Button();
 	@FXML
@@ -38,7 +42,7 @@ public class ControllerSignUp {
 	@FXML
 	TextField usernameText = new TextField();
 	@FXML
-	TextField passwordText = new TextField();
+	PasswordField passwordText = new PasswordField();
 	@FXML
 	TextField typeText = new TextField();
 	@FXML
@@ -51,10 +55,16 @@ public class ControllerSignUp {
 	TextField emailText = new TextField();
 	@FXML
 	TextField shippingText = new TextField();
-	SignInAndUp sign = new SignInAndUp();
+	@FXML
+	Label hide = new Label();
+	@FXML
+	ImageView eye = new ImageView();
 
 	public void Sign_UP(ActionEvent event) throws IOException {
+		SingletonClasses s2 = SingletonClasses.getoneclass();
 		boolean result = true;
+		boolean result2 = s2.sign.sign_UP(usernameText.getText(), passwordText.getText(), firstnameText.getText(), lastnameText.getText(),
+				phoneText.getText(), emailText.getText(), shippingText.getText(), typeText.getText());
 		if(result) {
 			if(typeText.getText().toLowerCase().equals("customer")) {
 				Parent loader = FXMLLoader.load(getClass().getResource("CustomerFXML.fxml"));
@@ -75,6 +85,22 @@ public class ControllerSignUp {
 			alert.setHeaderText(null);
 			alert.setContentText("Error! This Account is already existed");
 			alert.showAndWait();
+		}
+	}
+	public void back(MouseEvent event) throws IOException {
+		Parent loader = FXMLLoader.load(getClass().getResource("Sign_IN.fxml"));
+		Scene scene = new Scene(loader);
+		Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+		app.setScene(scene);
+		app.show();
+	}
+	public void show_password(MouseEvent event) {
+		String get_pass = passwordText.getText();
+		hide.setText(get_pass);
+		if(hide.isVisible()) {
+			hide.setVisible(false);
+		}else {
+			hide.setVisible(true);
 		}
 	}
 }
