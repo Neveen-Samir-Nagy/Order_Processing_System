@@ -13,57 +13,57 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerSignUp">
    <children>
-      <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="846.0" prefWidth="829.0" style="-fx-background-image: url(&quot;welcome2.jpg&quot;); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: stretch;">
+      <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="846.0" prefWidth="829.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: stretch;">
          <children>
             <ButtonBar layoutX="295.0" layoutY="639.0" prefHeight="53.0" prefWidth="209.0" />
-            <Label fx:id="usernameLabel" layoutX="105.0" layoutY="124.0" prefHeight="39.0" prefWidth="202.0" text="User Name" textFill="FIREBRICK">
+            <Label fx:id="usernameLabel" layoutX="105.0" layoutY="124.0" prefHeight="39.0" prefWidth="202.0" text="User Name" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="40.0" />
+                  <Font name="Bell MT" size="38.0" />
                </font>
             </Label>
-            <Label fx:id="firstnameLabel" layoutX="102.0" layoutY="201.0" prefHeight="38.0" prefWidth="193.0" text="First Name" textFill="FIREBRICK">
+            <Label fx:id="firstnameLabel" layoutX="102.0" layoutY="201.0" prefHeight="38.0" prefWidth="193.0" text="First Name" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="36.0" />
+                  <Font name="Bell MT" size="38.0" />
                </font>
             </Label>
-            <Label fx:id="lastnameLabel" layoutX="96.0" layoutY="283.0" prefHeight="38.0" prefWidth="193.0" text="Last Name" textFill="FIREBRICK">
+            <Label fx:id="lastnameLabel" layoutX="96.0" layoutY="283.0" prefHeight="38.0" prefWidth="193.0" text="Last Name" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="38.0" />
+                  <Font name="Bell MT" size="38.0" />
                </font>
             </Label>
-            <Label fx:id="emailLabel" layoutX="96.0" layoutY="357.0" prefHeight="38.0" prefWidth="221.0" text="Email Address" textFill="FIREBRICK">
+            <Label fx:id="emailLabel" layoutX="96.0" layoutY="357.0" prefHeight="38.0" prefWidth="221.0" text="Email Address" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="33.0" />
+                  <Font name="Bell MT" size="35.0" />
                </font>
             </Label>
-            <Label fx:id="phoneLabel" layoutX="88.0" layoutY="430.0" prefHeight="40.0" prefWidth="221.0" text="Phone Number" textFill="FIREBRICK">
+            <Label fx:id="phoneLabel" layoutX="88.0" layoutY="435.0" prefHeight="40.0" prefWidth="221.0" text="Phone Number" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="35.0" />
+                  <Font name="Bell MT" size="34.0" />
                </font>
             </Label>
-            <Label fx:id="shippingLabel" layoutX="61.0" layoutY="509.0" prefHeight="40.0" prefWidth="275.0" text="Shipping Address" textFill="FIREBRICK">
+            <Label fx:id="shippingLabel" layoutX="62.0" layoutY="516.0" prefHeight="40.0" prefWidth="275.0" text="Shipping Address" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="35.0" />
+                  <Font name="Bell MT" size="38.0" />
                </font>
             </Label>
-            <Label fx:id="typeLabel" layoutX="84.0" layoutY="596.0" prefHeight="39.0" prefWidth="193.0" text="      Type" textAlignment="CENTER" textFill="FIREBRICK">
+            <Label fx:id="typeLabel" layoutX="96.0" layoutY="604.0" prefHeight="39.0" prefWidth="193.0" text="      Type" textAlignment="CENTER" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="41.0" />
+                  <Font name="Bell MT" size="38.0" />
                </font>
             </Label>
-            <Label fx:id="passwordLabel" layoutX="87.0" layoutY="683.0" prefHeight="41.0" prefWidth="202.0" text="Password" textFill="FIREBRICK">
+            <Label fx:id="passwordLabel" layoutX="135.0" layoutY="695.0" prefHeight="41.0" prefWidth="202.0" text="Password" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="46.0" />
+                  <Font name="Bell MT" size="38.0" />
                </font>
             </Label>
-            <Label fx:id="registeration" layoutX="102.0" layoutY="25.0" prefHeight="54.0" prefWidth="524.0" text="          Registration" textFill="FIREBRICK">
+            <Label fx:id="registeration" layoutX="102.0" layoutY="25.0" prefHeight="54.0" prefWidth="524.0" text="          Registration" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="62.0" />
+                  <Font name="Bell MT" size="62.0" />
                </font>
             </Label>
-            <Button fx:id="finish" layoutX="664.0" layoutY="767.0" mnemonicParsing="false" onAction="#Sign_UP" prefHeight="38.0" prefWidth="128.0" style="-fx-background-image: url(&quot;welcome.jpg&quot;); -fx-background-position: center; -fx-background-size: cover;" text="Finish" textFill="FIREBRICK">
+            <Button fx:id="finish" layoutX="664.0" layoutY="767.0" mnemonicParsing="false" onAction="#Sign_UP" prefHeight="38.0" prefWidth="128.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: center; -fx-background-size: cover;" text="Finish" textFill="#1c657c">
                <font>
-                  <Font name="Forte" size="31.0" />
+                  <Font name="Bell MT" size="30.0" />
                </font>
             </Button>
             <TextField fx:id="usernameText" alignment="CENTER" layoutX="415.0" layoutY="123.0" prefHeight="48.0" prefWidth="275.0" promptText="UserName">
