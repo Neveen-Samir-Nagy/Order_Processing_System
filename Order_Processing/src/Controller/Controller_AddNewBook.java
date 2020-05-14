@@ -44,13 +44,18 @@ public class Controller_AddNewBook {
 	TextField categoryText = new TextField();
 	@FXML
 	TextField authorText = new TextField();
+	@FXML
+	TextField publisherAddressText = new TextField();
+	@FXML
+	TextField publisherPhoneText = new TextField();
 	
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 	
 	public void done(ActionEvent event) throws IOException {
 		if(s2.get_book().equals("add")) {
 			s2.manager.add_NewBook(ISBNText.getText(), titleText.getText(), publisherText.getText(),
-					authorText.getText(), yearText.getText(), priceText.getText());
+					authorText.getText(), yearText.getText(), priceText.getText(),
+					publisherAddressText.getText(), publisherPhoneText.getText());
 		}else if(s2.get_book().equals("modify")) {
 			Queue<String> column = new LinkedList<String>();
 			Queue<String> value = new LinkedList<String>();

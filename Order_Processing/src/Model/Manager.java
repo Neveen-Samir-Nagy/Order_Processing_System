@@ -6,9 +6,9 @@ import java.util.Queue;
 public class Manager implements Managers{
 
 	@Override
-	public void add_NewBook(String ISBN, String Title, String Publisher, String Author, String year, String price) {
+	public void add_NewBook(String ISBN, String Title, String Publisher_name, String Author, String year,
+			String price, String publisher_address, String publisher_phone) {
 		// TODO Auto-generated method stub
-		
 		
 	}
 
@@ -32,6 +32,12 @@ public class Manager implements Managers{
 
 	@Override
 	public void view_GroupingOnSales() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update_User(String userName) {
 		// TODO Auto-generated method stub
 		
 	}

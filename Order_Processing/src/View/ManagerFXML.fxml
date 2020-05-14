@@ -167,6 +167,15 @@
                         <MenuItem fx:id="topTenBooksReport" mnemonicParsing="false" onAction="#view_Report3" text="Top 10 Selling Books" />
                      </items>
                   </Menu>
+                  <Menu fx:id="update_user" mnemonicParsing="false" text="Update Users">
+                    <items>
+                      <MenuItem fx:id="user_update" mnemonicParsing="false" text="User Name">
+                           <graphic>
+                              <TextField fx:id="user_update_Text" onAction="#update_User" />
+                           </graphic>
+                        </MenuItem>
+                    </items>
+                  </Menu>
                   <Menu fx:id="help" mnemonicParsing="false" text="Help" />
                </menus>
             </MenuBar>

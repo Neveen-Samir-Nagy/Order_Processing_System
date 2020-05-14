@@ -58,6 +58,8 @@ public class ControllerMangers {
 	@FXML
 	Menu viewReport = new Menu();
 	@FXML
+	Menu update_user = new Menu();
+	@FXML
 	MenuBar menu = new MenuBar();
 	@FXML
 	MenuItem editItem = new MenuItem();
@@ -100,6 +102,8 @@ public class ControllerMangers {
 	@FXML
 	MenuItem topTenBooksReport = new MenuItem();
 	@FXML
+	MenuItem user_update = new MenuItem();
+	@FXML
 	TextField publisherText = new TextField();
 	@FXML
 	TextField authorText = new TextField();
@@ -119,6 +123,8 @@ public class ControllerMangers {
 	TextField creditCardText = new TextField();
 	@FXML
 	TextField dateText = new TextField();
+	@FXML
+	TextField user_update_Text = new TextField();
 	@FXML
 	ListView<ResultSet> list_Books = new ListView<ResultSet>();
 
@@ -414,5 +420,9 @@ public class ControllerMangers {
 		Alert a1 = new Alert(AlertType.NONE, "Please Enter Null for no needed attributes", ButtonType.OK);
 		// show the dialog
 		a1.show();
+	}
+	
+	public void update_User(ActionEvent event) {
+		s2.manager.update_User(((TextField)event.getSource()).getText());
 	}
 }

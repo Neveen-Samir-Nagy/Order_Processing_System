@@ -3,7 +3,8 @@ import java.util.Queue;
 
 public interface Managers {
 
-	void add_NewBook(String ISBN, String Title, String Publisher, String Author, String year, String price);
+	void add_NewBook(String ISBN, String Title, String Publisher_name, String Author, String year,
+			String price, String publisher_address, String publisher_phone);
 
 	void modify_ExistingBook(String column, String value, Queue update_columns, Queue update_values);
 
@@ -12,4 +13,6 @@ public interface Managers {
 	void promote_RegisteredCustomersToHaveManagersCredentials();
 
 	void view_GroupingOnSales();
+	
+	void update_User(String userName);
 }
