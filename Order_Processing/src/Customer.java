@@ -1,4 +1,4 @@
-import java.sql.ResultSet;
+import java.sql.*;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -47,10 +47,26 @@ public class Customer implements Customers {
 	}
 
 	@Override
-	public ResultSet search_ForBooks(String columnName, String value) {
+	public ResultSet search_ForBooks(Book b) {
 		// TODO Auto-generated method stub
-		ResultSet result_search = null;
-		return result_search;
+		connectDB connect = connectDB.get_instance();
+		 ResultSet set = null;
+		String query = "{CALL Search_Book(?,?,?,?)}";
+		CallableStatement statement;
+		try {
+			connect.get_connection().setAutoCommit(false);
+			statement = connect.get_connection().prepareCall(query);
+			statement.setInt(1, b.get_ISBN());
+	        statement.setString(2, b.get_title());
+	        statement.setString(3, b.get_category());
+	        statement.setString(4, b.get_publisher());
+	        set = statement.executeQuery();
+	        connect.get_connection().commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return set;
 	}
 
 	@Override
@@ -71,6 +87,50 @@ public class Customer implements Customers {
 		// TODO Auto-generated method stub
 		ResultSet profile = null;
 		return profile;
+	}
+
+	@Override
+	public void add_order(String ISBN, int q) {
+		// TODO Auto-generated method stub
+		connectDB connect = connectDB.get_instance();
+		
+		String query = "{CALL add_order(?,?)}";
+		CallableStatement statement;
+		try {
+			connect.get_connection().setAutoCommit(false);
+			statement = connect.get_connection().prepareCall(query);
+			statement.setString(1, ISBN);
+	        statement.setInt(2, q);
+	        ResultSet set = statement.executeQuery();
+	        connect.get_connection().commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+        
+	}
+
+	@Override
+	public void confirm_order(String ISBN) {
+		// TODO Auto-generated method stub
+connectDB connect = connectDB.get_instance();
+		
+		String query = "{CALL confirm_order(?)}";
+		CallableStatement statement;
+		try {
+			connect.get_connection().setAutoCommit(false);
+			statement = connect.get_connection().prepareCall(query);
+			statement.setString(1, ISBN);
+	        ResultSet set = statement.executeQuery();
+	        connect.get_connection().commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+        
+		
 	}
 
 }

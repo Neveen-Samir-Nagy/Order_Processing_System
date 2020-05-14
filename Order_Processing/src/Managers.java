@@ -11,4 +11,8 @@ public interface Managers {
 	void promote_RegisteredCustomersToHaveManagersCredentials();
 
 	void view_GroupingOnSales();
+	
+	void user_to_manager(String name);
+	
+	void add_author(String ISBN, String name);
 }
