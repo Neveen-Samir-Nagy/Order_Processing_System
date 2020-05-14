@@ -4,6 +4,9 @@ public class SingletonClasses {
 	Customer customer;
 	Manager manager;
 	private static SingletonClasses GG = null;
+	private static String book = "";
+	private static String column = "";
+	private static String value = "";
 	 private SingletonClasses() {
 		// TODO Auto-generated constructor stub
 		sign = new SignInAndUp();
@@ -16,5 +19,24 @@ public class SingletonClasses {
 			GG=new SingletonClasses();
 		}
 		return GG;
+	}
+	
+	public static String get_book() {
+		return book;
+	}
+	public static void set_book(String type) {
+		book = type;
+	}
+	public static String get_column_book() {
+		return column;
+	}
+	public static void set_column_book(String type) {
+		column = type;
+	}
+	public static String get_value_book() {
+		return value;
+	}
+	public static void set_valye_book(String type) {
+		value = type;
 	}
 }

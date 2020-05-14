@@ -60,7 +60,7 @@
                   <Image url="@arrow.png" />
                </image>
             </ImageView>
-            <Label fx:id="usernameText" layoutX="421.0" layoutY="115.0" prefHeight="51.0" prefWidth="358.0" text="    UserName" textAlignment="CENTER">
+            <Label fx:id="usernameText" layoutX="426.0" layoutY="115.0" prefHeight="51.0" prefWidth="358.0" text="    UserName" textAlignment="CENTER">
                <font>
                   <Font size="48.0" />
                </font>
@@ -95,7 +95,7 @@
                   <Font size="43.0" />
                </font>
             </Label>
-            <Label fx:id="passwordText" layoutX="414.0" layoutY="775.0" prefHeight="47.0" prefWidth="329.0" text="         Password">
+            <Label fx:id="passwordText" layoutX="393.0" layoutY="772.0" prefHeight="47.0" prefWidth="329.0" text="         Password">
                <font>
                   <Font size="37.0" />
                </font>

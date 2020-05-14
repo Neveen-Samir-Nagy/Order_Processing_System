@@ -1,13 +1,16 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public interface Customers {
 
-	void edit_Information();
+	void edit_Information(String Username, String Password, String Firstname, String Lastname, String PhoneNumber, 
+			String EmailAddress, String ShippingAddress, String Type) throws SQLException;
 
-	boolean search_ForBooks();
+	ResultSet search_ForBooks(String columnName, String value);
 
-	void add_BooksToShoppingCart();
+	ResultSet view_Individual_TotalPrices();
 
-	void manage_ShoppingCart();
+	void checkOut(ResultSet books);
 
-	void checkOut_ShoppingCart();
+	ResultSet get_profile();
 }

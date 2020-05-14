@@ -1,7 +1,12 @@
 import java.io.IOException;
+import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -10,7 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class ControllerEditProfile {
+public class ControllerEditProfile implements Initializable{
 	@FXML
 	Button done = new Button();
 	@FXML
@@ -54,7 +59,10 @@ public class ControllerEditProfile {
 	
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 	
-	public void done(ActionEvent event) throws IOException {
+	public void done(ActionEvent event) throws IOException, SQLException {
+		s2.customer.edit_Information(usernameText.getText(), passwordText.getText(),
+				firstnameText.getText(), lastnameText.getText(),
+				phoneText.getText(), emailText.getText(), shippingText.getText(), typeText.getText());
 		Stage stage = (Stage) done.getScene().getWindow();
 	    stage.close();
 	}
@@ -65,6 +73,24 @@ public class ControllerEditProfile {
 			hide.setVisible(false);
 		}else {
 			hide.setVisible(true);
+		}
+	}
+	
+	@Override
+	public void initialize(URL url, ResourceBundle resources) {
+		ResultSet myProfile = s2.customer.get_profile();
+		try {
+			usernameText.setText(myProfile.getString("UserName"));
+			firstnameText.setText(myProfile.getString("FirstName"));
+			lastnameText.setText(myProfile.getString("LastName"));
+			emailText.setText(myProfile.getString("Email"));
+			phoneText.setText(myProfile.getString("Phone"));
+			shippingText.setText(myProfile.getString("Shipping_Address"));
+			typeText.setText(myProfile.getString("Type"));
+			passwordText.setText(myProfile.getString("Password"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

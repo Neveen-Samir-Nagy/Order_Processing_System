@@ -1,4 +1,7 @@
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -88,15 +91,15 @@ public class ControllerCustomers {
 	@FXML
 	Label shippingCart = new Label();
 	@FXML
-	ListView<String> list_Books = new ListView<String>();
-	
+	ListView<ResultSet> list_Books = new ListView<ResultSet>();
+
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 
 	public void editInformation(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("Edit.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = new Stage();
-		stage.getIcons().add(new Image("DB.jpg"));
+		stage.getIcons().add(new Image("Book.jpeg"));
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -105,21 +108,34 @@ public class ControllerCustomers {
 		Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = new Stage();
-		stage.getIcons().add(new Image("DB.jpg"));
+		stage.getIcons().add(new Image("Book.jpeg"));
 		stage.setScene(scene);
 		stage.show();
 	}
 
-	public void search_forBook(ActionEvent event) throws IOException {
-		boolean found = true;
-		if (found) {
+	public void search_forBook(ActionEvent event) throws IOException, SQLException {
+		ResultSet result_search = null;
+		if (event.getSource() instanceof MenuItem) {
+			result_search = s2.customer.search_ForBooks("Category", ((MenuItem) event.getSource()).getText());
+		} else if (event.getSource() instanceof TextField) {
+			String column = "";
+			if (((TextField) event.getSource()).getId().contains("publisher")) {
+				column = "Publisher_Name";
+			} else if (((TextField) event.getSource()).getId().contains("author")) {
+				column = "Author";
+			} else if (((TextField) event.getSource()).getId().contains("ISBN_Title")) {
+				column = "ISBN_Title";
+			}
+			result_search = s2.customer.search_ForBooks(column, ((TextField) event.getSource()).getText());
+		}
+		if (result_search.next()) {
 			Pane rootPane = new Pane();
-			ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
-			ListView<String> listView = new ListView<String>();
+			ObservableList<ResultSet> listChoices = FXCollections.observableArrayList(result_search);
+			ListView<ResultSet> listView = new ListView<ResultSet>();
 			listView.setItems(listChoices);
 			rootPane.getChildren().add(listView);
 			Stage newDialog = new Stage(StageStyle.UNIFIED);
-			newDialog.getIcons().add(new Image("DB.jpg"));
+			newDialog.getIcons().add(new Image("Book.jpeg"));
 			listView.setPrefWidth(800);
 			listView.setPrefHeight(500);
 			newDialog.setMinHeight(500);
@@ -140,11 +156,23 @@ public class ControllerCustomers {
 		}
 	}
 
-	public void insert_Book(ActionEvent event) throws IOException {
-		boolean found = true;
-		if (found) {
-			ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
-			listChoices.add("merna");
+	public void insert_Book(ActionEvent event) throws IOException, SQLException {
+		ResultSet result_search = null;
+		if (event.getSource() instanceof MenuItem) {
+			result_search = s2.customer.search_ForBooks("Category", ((MenuItem) event.getSource()).getText());
+		} else if (event.getSource() instanceof TextField) {
+			String column = "";
+			if (((TextField) event.getSource()).getId().contains("publisher")) {
+				column = "Publisher_Name";
+			} else if (((TextField) event.getSource()).getId().contains("author")) {
+				column = "Author";
+			} else if (((TextField) event.getSource()).getId().contains("ISBN_Title")) {
+				column = "ISBN_Title";
+			}
+			result_search = s2.customer.search_ForBooks(column, ((TextField) event.getSource()).getText());
+		}
+		if (result_search.next()) {
+			ObservableList<ResultSet> listChoices = FXCollections.observableArrayList();
 			list_Books.setItems(listChoices);
 		} else {
 			Alert a = new Alert(AlertType.NONE);
@@ -168,7 +196,7 @@ public class ControllerCustomers {
 	}
 
 	public void checkOut(ActionEvent event) throws IOException {
-		//remove book from table that are in shipping cart list_books
+		// remove book from table that are in shipping cart list_books
 		if (creditCardText.getText().equals("") || dateText.getText().equals("")) {
 			Alert a = new Alert(AlertType.NONE);
 			// set alert type
@@ -177,21 +205,29 @@ public class ControllerCustomers {
 			a.setContentText("Please Enter all required Information");
 			// show the dialog
 			a.show();
+		} else {
+			ObservableList<ResultSet> listChoices = list_Books.getItems();
+			for (int i = 0; i < listChoices.size(); i++) {
+				s2.customer.checkOut(listChoices.get(i));
+			}
+			for (int i = 0; i < listChoices.size(); i++) {
+				list_Books.getItems().remove(i);
+			}
 		}
 	}
 
 	public void remove_booksFromCart(ActionEvent event) {
 		list_Books.getItems().remove(list_Books.getSelectionModel().getSelectedItem());
 	}
-	
+
 	public void view_items(ActionEvent event) {
 		Pane rootPane = new Pane();
-		ObservableList<String> listChoices = FXCollections.observableArrayList(list_Books.getItems());
-		ListView<String> listView = new ListView<String>();
+		ObservableList<ResultSet> listChoices = FXCollections.observableArrayList(list_Books.getItems());
+		ListView<ResultSet> listView = new ListView<ResultSet>();
 		listView.setItems(listChoices);
 		rootPane.getChildren().add(listView);
 		Stage newDialog = new Stage(StageStyle.UNIFIED);
-		newDialog.getIcons().add(new Image("DB.jpg"));
+		newDialog.getIcons().add(new Image("Book.jpeg"));
 		listView.setPrefWidth(800);
 		listView.setPrefHeight(500);
 		newDialog.setMinHeight(500);
@@ -202,14 +238,16 @@ public class ControllerCustomers {
 		newDialog.setScene(newDialogScene);
 		newDialog.show();
 	}
+
 	public void view_IndividualAndTotalPriceofBooks(ActionEvent event) {
+		ResultSet view = s2.customer.view_Individual_TotalPrices();
 		Pane rootPane = new Pane();
-		ObservableList<String> listChoices = null;
-		ListView<String> listView = new ListView<String>();
+		ObservableList<ResultSet> listChoices = FXCollections.observableArrayList(view);
+		ListView<ResultSet> listView = new ListView<ResultSet>();
 		listView.setItems(listChoices);
 		rootPane.getChildren().add(listView);
 		Stage newDialog = new Stage(StageStyle.UNIFIED);
-		newDialog.getIcons().add(new Image("DB.jpg"));
+		newDialog.getIcons().add(new Image("Book.jpeg"));
 		listView.setPrefWidth(800);
 		listView.setPrefHeight(500);
 		newDialog.setMinHeight(500);

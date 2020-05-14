@@ -1,15 +1,18 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Queue;
 
-public class Manager implements Customers, Managers{
+public class Manager implements Managers{
 
 	@Override
-	public void add_NewBook(Book b) {
+	public void add_NewBook(String ISBN, String Title, String Publisher, String Author, String year, String price) {
 		// TODO Auto-generated method stub
 		
 		
 	}
 
 	@Override
-	public void modify_ExistingBook() {
+	public void modify_ExistingBook(String column, String value, Queue update_columns, Queue update_values) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -31,35 +34,4 @@ public class Manager implements Customers, Managers{
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void edit_Information() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean search_ForBooks() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void add_BooksToShoppingCart() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void manage_ShoppingCart() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkOut_ShoppingCart() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

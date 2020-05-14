@@ -13,7 +13,7 @@ public class MainGui extends Application{
 		// TODO Auto-generated method stub
 		Parent root = FXMLLoader.load(getClass().getResource("Sign_IN.fxml"));
 		Scene scence = new Scene(root);
-		primaryStage.getIcons().add(new Image("DB.jpg"));
+		primaryStage.getIcons().add(new Image("Book.jpeg"));
 		primaryStage.setTitle("Order processing System");
 		primaryStage.setScene(scence);
 		primaryStage.show();
