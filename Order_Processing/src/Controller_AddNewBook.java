@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -49,13 +48,7 @@ public class Controller_AddNewBook {
 	TextField categoryText = new TextField();
 	@FXML
 	TextField authorText = new TextField();
-	@FXML
-	ObservableList<String> categoryOptions = 
-    FXCollections.observableArrayList(
-    		"Science", "Art", "Religion", "History" , "Geography"
-    );
-	final ComboBox comboBox = new ComboBox(categoryOptions);
-	SingletonClasses s2 = SingletonClasses.getoneclass();
+
 	Manager m = new Manager();
 	
 	public void done(ActionEvent event) throws IOException {
