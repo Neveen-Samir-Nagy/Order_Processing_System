@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerProfile">
+   <children>
+      <AnchorPane prefHeight="869.0" prefWidth="852.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: left top,center; -fx-background-size: cover;">
+         <children>
+            <Label fx:id="usernameLabel" layoutX="105.0" layoutY="124.0" prefHeight="48.0" prefWidth="209.0" text="User Name" textFill="#1c657c">
+               <font>
+                  <Font name="Bell MT" size="44.0" />
+               </font>
+            </Label>
+            <Label fx:id="firstnameLabel" layoutX="105.0" layoutY="210.0" prefHeight="43.0" prefWidth="209.0" text="First Name" textFill="#1c657c">
+               <font>
+                  <Font name="Bell MT" size="38.0" />
+               </font>
+            </Label>
+            <Label fx:id="lastnameLabel" layoutX="97.0" layoutY="302.0" prefHeight="47.0" prefWidth="209.0" text="Last Name" textFill="#1c657c">
+               <font>
+                  <Font name="Bell MT" size="42.0" />
+               </font>
+            </Label>
+            <Label fx:id="emailLabel" layoutX="88.0" layoutY="389.0" prefHeight="47.0" prefWidth="228.0" text="Email Address" textFill="#1c657c">
+               <font>
+                  <Font name="Bell MT" size="37.0" />
+               </font>
+            </Label>
+            <Label fx:id="phoneLabel" layoutX="85.0" layoutY="489.0" prefHeight="47.0" prefWidth="235.0" text="Phone Number" textFill="#1c657c">
+               <font>
+                  <Font name="Bell MT" size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="shippingLabel" layoutX="60.0" layoutY="585.0" prefHeight="53.0" prefWidth="285.0" text="Shipping Address" textFill="#1c657c">
+               <font>
+                  <Font name="Bell MT" size="39.0" />
+               </font>
+            </Label>
+            <Label fx:id="typeLabel" layoutX="88.0" layoutY="682.0" prefHeight="50.0" prefWidth="209.0" text="      Type" textAlignment="CENTER" textFill="#1c657c">
+               <font>
+                  <Font name="Bell MT" size="40.0" />
+               </font>
+            </Label>
+            <Label fx:id="passwordLabel" layoutX="88.0" layoutY="768.0" prefHeight="61.0" prefWidth="228.0" text="Password" textFill="#1c657c">
+               <font>
+                  <Font name="Bell MT" size="51.0" />
+               </font>
+            </Label>
+            <Label fx:id="profile" layoutX="113.0" layoutY="16.0" prefHeight="54.0" prefWidth="524.0" text="         My Profile" textFill="#1c657c">
+               <font>
+                  <Font name="Bodoni MT" size="63.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="back" fitHeight="47.0" fitWidth="37.0" layoutX="23.0" layoutY="18.0" onMouseClicked="#done" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../arrow.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="usernameText" layoutX="426.0" layoutY="115.0" prefHeight="51.0" prefWidth="358.0" text="    UserName" textAlignment="CENTER">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <Label fx:id="firstnameText" layoutX="409.0" layoutY="201.0" prefHeight="52.0" prefWidth="339.0" text="      FisrtName">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Label>
+            <Label fx:id="lastnameText" layoutX="414.0" layoutY="298.0" prefHeight="50.0" prefWidth="329.0" text="        LastName">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Label fx:id="emailText" layoutX="414.0" layoutY="389.0" prefHeight="47.0" prefWidth="329.0" text="         Email">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+            <Label fx:id="phoneText" layoutX="414.0" layoutY="484.0" prefHeight="50.0" prefWidth="329.0" text="          Phone">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Label>
+            <Label fx:id="shippingText" layoutX="414.0" layoutY="582.0" prefHeight="53.0" prefWidth="329.0" text="        Shipping">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Label fx:id="typeText" layoutX="414.0" layoutY="682.0" prefHeight="53.0" prefWidth="329.0" text="         Type">
+               <font>
+                  <Font size="43.0" />
+               </font>
+            </Label>
+            <Label fx:id="passwordText" layoutX="393.0" layoutY="772.0" prefHeight="47.0" prefWidth="329.0" text="         Password">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
