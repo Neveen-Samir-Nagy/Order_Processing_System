@@ -17,5 +17,5 @@ public interface Customers {
 	void confirm_order(String ISBN);
 	
 	void comp_trans(String ISBN, int q);
-	
 }
+

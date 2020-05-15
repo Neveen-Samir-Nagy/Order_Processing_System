@@ -89,7 +89,7 @@ public class Controller_AddNewBook {
 				column.add("Author");
 				value.add(authorText.getText());
 			}
-			s2.manager.modify_ExistingBook(s2.get_column_book(), s2.get_value_book(), column, value);
+			//s2.manager.modify_ExistingBook(s2.get_column_book(), s2.get_value_book(), column, value);
 		}
 		Stage stage = (Stage) add.getScene().getWindow();
 	    stage.close();

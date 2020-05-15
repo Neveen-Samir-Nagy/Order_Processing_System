@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Model.Book;
 import Model.SingletonClasses;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -150,18 +151,21 @@ public class ControllerMangers {
 
 	public void search_forBook(ActionEvent event) throws IOException, SQLException {
 		ResultSet result_search = null;
+		Book b = new Book(null, null, null, null, null, 0, null);
 		if (event.getSource() instanceof MenuItem) {
-			result_search = s2.customer.search_ForBooks("Category", ((MenuItem) event.getSource()).getText());
+			b.set_category(((MenuItem) event.getSource()).getText());
+			result_search = s2.customer.search_ForBooks(b);
 		} else if (event.getSource() instanceof TextField) {
-			String column = "";
 			if (((TextField) event.getSource()).getId().contains("publisher")) {
-				column = "Publisher_Name";
+				b.set_publisher(((TextField) event.getSource()).getText());
 			} else if (((TextField) event.getSource()).getId().contains("author")) {
-				column = "Author";
+				b.set_author(((TextField) event.getSource()).getText());
 			} else if (((TextField) event.getSource()).getId().contains("ISBN_Title")) {
-				column = "ISBN_Title";
+				String[] arrOfStr = ((TextField) event.getSource()).getText().split(" ");
+				b.set_ISBN(arrOfStr[0]);
+				b.set_title(arrOfStr[1]);
 			}
-			result_search = s2.customer.search_ForBooks(column, ((TextField) event.getSource()).getText());
+			result_search = s2.customer.search_ForBooks(b);
 		}
 		if (result_search.next()) {
 			Pane rootPane = new Pane();
@@ -193,18 +197,21 @@ public class ControllerMangers {
 
 	public void insert_Book(ActionEvent event) throws IOException, SQLException {
 		ResultSet result_search = null;
+		Book b = new Book(null, null, null, null, null, 0, null);
 		if (event.getSource() instanceof MenuItem) {
-			result_search = s2.customer.search_ForBooks("Category", ((MenuItem) event.getSource()).getText());
+			b.set_category(((MenuItem) event.getSource()).getText());
+			result_search = s2.customer.search_ForBooks(b);
 		} else if (event.getSource() instanceof TextField) {
-			String column = "";
 			if (((TextField) event.getSource()).getId().contains("publisher")) {
-				column = "Publisher_Name";
+				b.set_publisher(((TextField) event.getSource()).getText());
 			} else if (((TextField) event.getSource()).getId().contains("author")) {
-				column = "Author";
+				b.set_author(((TextField) event.getSource()).getText());
 			} else if (((TextField) event.getSource()).getId().contains("ISBN_Title")) {
-				column = "ISBN_Title";
+				String[] arrOfStr = ((TextField) event.getSource()).getText().split(" ");
+				b.set_ISBN(arrOfStr[0]);
+				b.set_title(arrOfStr[1]);
 			}
-			result_search = s2.customer.search_ForBooks(column, ((TextField) event.getSource()).getText());
+			result_search = s2.customer.search_ForBooks(b);
 		}
 		if (result_search.next()) {
 			ObservableList<ResultSet> listChoices = FXCollections.observableArrayList();
@@ -423,6 +430,6 @@ public class ControllerMangers {
 	}
 	
 	public void update_User(ActionEvent event) {
-		s2.manager.update_User(((TextField)event.getSource()).getText());
+		s2.manager.user_to_manager(((TextField)event.getSource()).getText());
 	}
 }
