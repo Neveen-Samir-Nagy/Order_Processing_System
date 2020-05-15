@@ -4,8 +4,7 @@ import java.sql.SQLException;
 
 public interface Customers {
 
-	void edit_Information(String Username, String Password, String Firstname, String Lastname, String PhoneNumber, 
-			String EmailAddress, String ShippingAddress, String Type) throws SQLException;
+	void edit_Information(User u) throws SQLException;
 
 	ResultSet search_ForBooks(Book b);
 
@@ -18,4 +17,11 @@ public interface Customers {
 	void add_order(String ISBN, int q);
 	
 	void confirm_order(String ISBN);
+	
+	void comp_trans(String ISBN, int q);
+	
+	void sign_in(String name);
+	
+	void sign_up(String UserName ,String Password ,String firstName, String lastName ,String email ,String phone,
+			String shipping_address , boolean type );
 }
