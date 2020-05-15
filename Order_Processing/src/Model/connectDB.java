@@ -1,3 +1,4 @@
+package Model;
 import java.sql.*;
 
 public class connectDB {
@@ -8,14 +9,14 @@ public class connectDB {
     CallableStatement cstmt = null;
 	private connectDB() throws SQLException  {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect = DriverManager
-	                   .getConnection("jdbc:mysql://localhost/bookstore"
-	                           + "root" + "root");
+	                   .getConnection("jdbc:mysql://localhost:3306/bookstore"
+	                           , "test" , "jesusova");
 		    statement = connect.createStatement();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			 System.out.println("Error : " + e);
 		}
 	    
 	    }
@@ -25,7 +26,7 @@ public class connectDB {
 				db = new connectDB();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				 System.out.println("Error : " + e);
 			}
 			
 		}
@@ -52,12 +53,7 @@ public class connectDB {
 	        try {
 	            connect.close();
 	        } catch (SQLException e) {
-	            e.printStackTrace();
+	        	 System.out.println("Error : " + e);
 	        }
 	    }
-
-	
-
-	
-
 }

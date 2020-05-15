@@ -2,11 +2,10 @@ package Model;
 
 public class Book {
 
-	private int ISBN, price;
-	private String title, author, publisher, publication_year, category;
-
-	public Book(int ISBN, String title, String author, String publisher, String publication_year, int price,
-			String category) {
+	private String title, author, publisher, publication_year, category,ISBN;
+	private int price,Quantity,Threshold;
+	public Book(String ISBN, String title, String author, String publisher, String publication_year, int price,
+			String category, int Quantity, int Threshold, String publisher_address, String publisher_phone) {
 		this.ISBN = ISBN;
 		this.title = title;
 		this.author = author;
@@ -14,16 +13,23 @@ public class Book {
 		this.price = price;
 		this.publication_year = publication_year;
 		this.publisher = publisher;
+		this.Quantity= Quantity;
+		this.Threshold = Threshold;
 	}
 
-	public int get_ISBN() {
+	public String get_ISBN() {
 		return ISBN;
 	}
 
 	public int get_price() {
 		return price;
 	}
-
+	public int get_Quantity() {
+		return Quantity;
+	}
+	public int get_Threshold() {
+		return Threshold;
+	}
 	public String get_title() {
 		return title;
 	}
@@ -44,14 +50,19 @@ public class Book {
 		return category;
 	}
 
-	public void set_ISBN(int isbn) {
+	public void set_ISBN(String isbn) {
 		ISBN = isbn;
 	}
 
 	public void set_price(int p) {
 		price = p;
 	}
-
+	public void set_Quantity(int q) {
+		Quantity = q;
+	}
+	public void set_Threshold(int t) {
+		Threshold = t;
+	}
 	public void set_title(String t) {
 		title = t;
 	}

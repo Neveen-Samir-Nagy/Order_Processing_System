@@ -1,7 +1,10 @@
 package Controller;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import Model.SingletonClasses;
+import Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,20 +65,28 @@ public class ControllerSignUp {
 	Label hide = new Label();
 	@FXML
 	ImageView eye = new ImageView();
+	
+	SingletonClasses s2 = SingletonClasses.getoneclass();
 
-	public void Sign_UP(ActionEvent event) throws IOException {
-		SingletonClasses s2 = SingletonClasses.getoneclass();
-		boolean result = true;
-		boolean result2 = s2.sign.sign_UP(usernameText.getText(), passwordText.getText(), firstnameText.getText(), lastnameText.getText(),
-				phoneText.getText(), emailText.getText(), shippingText.getText(), typeText.getText());
-		if(result) {
-			if(typeText.getText().toLowerCase().equals("customer")) {
+	public void Sign_UP(ActionEvent event) throws IOException, SQLException {
+		boolean type = false;
+		if(typeText.getText().toLowerCase().equals("manager")) {
+			type = true;
+		}else {
+			type = false;
+		}
+		ResultSet set = s2.sign.sign_in(usernameText.getText(), passwordText.getText(), type);
+		if(!set.next()) {
+			s2.my_user = new User(usernameText.getText(), passwordText.getText(), firstnameText.getText(), lastnameText.getText(),
+					emailText.getText(), phoneText.getText(), shippingText.getText(), type);
+			s2.sign.sign_up(s2.my_user);
+			if(!type) {
 				Parent loader = FXMLLoader.load(getClass().getResource("../View/CustomerFXML.fxml"));
 				Scene scene = new Scene(loader);
 				Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
 				app.setScene(scene);
 				app.show();
-			}else if(typeText.getText().toLowerCase().equals("manager")) {
+			}else {
 				Parent loader = FXMLLoader.load(getClass().getResource("../View/ManagerFXML.fxml"));
 				Scene scene = new Scene(loader);
 				Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();

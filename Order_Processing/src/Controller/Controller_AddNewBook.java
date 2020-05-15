@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import Model.Book;
 import Model.SingletonClasses;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,10 +53,11 @@ public class Controller_AddNewBook {
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 
 	public void done(ActionEvent event) throws IOException {
+		Book b = new Book(ISBNText.getText(), titleText.getText(), authorText.getText(),
+				publisherText.getText(), yearText.getText(), Integer.parseInt(priceText.getText()),
+				categoryText.getText(), 0, 0 , publisherAddressText.getText(), publisherPhoneText.getText());
 		if(s2.get_book().equals("add")) {
-			s2.manager.add_NewBook(ISBNText.getText(), titleText.getText(), publisherText.getText(),
-					authorText.getText(), yearText.getText(), priceText.getText(),
-					publisherAddressText.getText(), publisherPhoneText.getText());
+			s2.manager.add_NewBook(b);
 		}else if(s2.get_book().equals("modify")) {
 			Queue<String> column = new LinkedList<String>();
 			Queue<String> value = new LinkedList<String>();

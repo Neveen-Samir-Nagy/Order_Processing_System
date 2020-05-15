@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Model.SingletonClasses;
+import Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -62,9 +63,14 @@ public class ControllerEditProfile implements Initializable{
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 	
 	public void done(ActionEvent event) throws IOException, SQLException {
-		s2.customer.edit_Information(usernameText.getText(), passwordText.getText(),
-				firstnameText.getText(), lastnameText.getText(),
-				phoneText.getText(), emailText.getText(), shippingText.getText(), typeText.getText());
+		boolean type = false;
+		if(typeText.getText().toLowerCase().equals("manager")) {
+			type = true;
+		}
+		s2.my_user = new User(usernameText.getText(), passwordText.getText(),
+				firstnameText.getText(), lastnameText.getText(),emailText.getText(),
+				phoneText.getText(), shippingText.getText(), type);
+		s2.customer.edit_Information(s2.my_user);
 		Stage stage = (Stage) done.getScene().getWindow();
 	    stage.close();
 	}
@@ -80,19 +86,17 @@ public class ControllerEditProfile implements Initializable{
 	
 	@Override
 	public void initialize(URL url, ResourceBundle resources) {
-		ResultSet myProfile = s2.customer.get_profile();
-		try {
-			usernameText.setText(myProfile.getString("UserName"));
-			firstnameText.setText(myProfile.getString("FirstName"));
-			lastnameText.setText(myProfile.getString("LastName"));
-			emailText.setText(myProfile.getString("Email"));
-			phoneText.setText(myProfile.getString("Phone"));
-			shippingText.setText(myProfile.getString("Shipping_Address"));
-			typeText.setText(myProfile.getString("Type"));
-			passwordText.setText(myProfile.getString("Password"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		usernameText.setText(s2.my_user.get_userName());
+		firstnameText.setText(s2.my_user.get_firstName());
+		lastnameText.setText(s2.my_user.get_lastName());
+		emailText.setText(s2.my_user.get_Email());
+		phoneText.setText(s2.my_user.get_phone());
+		shippingText.setText(s2.my_user.get_shippingAddress());
+		if(s2.my_user.get_type()) {
+			typeText.setText("Manager");
+		}else {
+			typeText.setText("Customer");
 		}
+		passwordText.setText(s2.my_user.get_password());
 	}
 }

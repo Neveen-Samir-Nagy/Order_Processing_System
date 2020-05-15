@@ -60,19 +60,17 @@ public class ControllerProfile implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle resources) {
-		ResultSet myProfile = s2.customer.get_profile();
-		try {
-			usernameText.setText(myProfile.getString("UserName"));
-			firstnameText.setText(myProfile.getString("FirstName"));
-			lastnameText.setText(myProfile.getString("LastName"));
-			emailText.setText(myProfile.getString("Email"));
-			phoneText.setText(myProfile.getString("Phone"));
-			shippingText.setText(myProfile.getString("Shipping_Address"));
-			typeText.setText(myProfile.getString("Type"));
-			passwordText.setText(myProfile.getString("Password"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			usernameText.setText(s2.my_user.get_userName());
+			firstnameText.setText(s2.my_user.get_firstName());
+			lastnameText.setText(s2.my_user.get_lastName());
+			emailText.setText(s2.my_user.get_Email());
+			phoneText.setText(s2.my_user.get_phone());
+			shippingText.setText(s2.my_user.get_shippingAddress());
+			if(s2.my_user.get_type()) {
+				typeText.setText("Manager");
+			}else {
+				typeText.setText("Customer");
+			}
+			passwordText.setText(s2.my_user.get_password());
 	}
 }

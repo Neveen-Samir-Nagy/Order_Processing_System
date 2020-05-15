@@ -8,11 +8,13 @@ public class SingletonClasses {
 	private static String book = "";
 	private static String column = "";
 	private static String value = "";
+	public User my_user;
 	 private SingletonClasses() {
 		// TODO Auto-generated constructor stub
 		sign = new SignInAndUp();
 		customer = new Customer();
 		manager = new Manager();
+		my_user = new User(null,null,null,null,null,null,null,false);
 	}
 	
 	public static SingletonClasses getoneclass() {

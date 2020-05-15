@@ -2,10 +2,11 @@ package Model;
 
 public class User {
 
-	private String userName, password, type, email, shippingAddress, phone, firstName, lastName;
+	private String userName, password, email, shippingAddress, phone, firstName, lastName;
+	boolean type;
 	
 	public User(String userName, String password, String firstName, String lastName, String email, String phone,
-			String shippingAddress, String type) {
+			String shippingAddress, boolean type) {
 		this.userName = userName;
 		this.password = password;
 		this.firstName = firstName;
@@ -66,11 +67,11 @@ public class User {
 	public String get_shippingAddress() {
 		return shippingAddress;
 	}
-	public void set_type(String str) {
+	public void set_type(boolean str) {
 		type = str;
 	}
 	
-	public String get_type() {
+	public boolean get_type() {
 		return type;
 	}
 }
