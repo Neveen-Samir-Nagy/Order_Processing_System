@@ -79,12 +79,6 @@ public class ControllerSignUp {
 	}
 
 	public void Sign_UP(ActionEvent event) throws IOException, SQLException {
-		//boolean type = false;
-		//if(typeText.getText().toLowerCase().equals("manager")) {
-			//type = true;
-		//}else {
-			//type = false;
-		//}
 		ResultSet set = s2.sign.sign_in(usernameText.getText(), passwordText.getText(), type.getSelectionModel().getSelectedItem().toString());
 		if(!set.next()) {
 			s2.my_user = new User(usernameText.getText(), passwordText.getText(), firstnameText.getText(), lastnameText.getText(),

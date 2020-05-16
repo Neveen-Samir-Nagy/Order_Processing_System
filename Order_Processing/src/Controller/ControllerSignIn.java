@@ -57,10 +57,6 @@ public class ControllerSignIn {
 	}
 
 	public void Sign_in(ActionEvent event) throws IOException, SQLException {
-		//boolean type = false;
-		//if(Type.getText().toLowerCase().equals("manager")) {
-			//type = true;
-		//}
 		ResultSet user = s2.sign.sign_in(user_name.getText(), pass.getText(), type.getSelectionModel().getSelectedItem().toString());
 		if (user.next()) {
 			if(type.getSelectionModel().getSelectedItem().toString() == "Customer") {
@@ -72,6 +68,8 @@ public class ControllerSignIn {
 				app.setScene(scene);
 				app.show();
 			}else {
+				s2.my_user = new User(user.getString(1),user.getString(2),user.getString(3),user.getString(4),
+						user.getString(5),user.getString(6),user.getString(7),user.getString(8));
 				Parent loader = FXMLLoader.load(getClass().getResource("../View/ManagerFXML.fxml"));
 				Scene scene = new Scene(loader);
 				Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();
