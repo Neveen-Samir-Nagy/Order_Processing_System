@@ -11,9 +11,7 @@ public interface Customers {
 	ResultSet view_Individual_TotalPrices();
 
 	void checkOut(ResultSet books);
-	
-	void add_order(String ISBN, int q);
-	
+		
 	void confirm_order(String ISBN);
 	
 	void comp_trans(String ISBN, int q);

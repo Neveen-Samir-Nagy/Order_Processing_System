@@ -70,25 +70,6 @@ public class Customer implements Customers {
 
 	}
 
-	@Override
-	public void add_order(String ISBN, int q) {
-		// TODO Auto-generated method stub
-		connectDB connect = connectDB.get_instance();
-		String query = "{CALL add_order(?,?)}";
-		CallableStatement statement;
-		try {
-			connect.get_connection().setAutoCommit(false);
-			statement = connect.get_connection().prepareCall(query);
-			statement.setString(1, ISBN);
-			statement.setInt(2, q);
-			ResultSet set = statement.executeQuery();
-			connect.get_connection().commit();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
 
 	@Override
 	public void confirm_order(String ISBN) {

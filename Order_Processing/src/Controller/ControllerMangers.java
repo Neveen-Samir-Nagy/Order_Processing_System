@@ -376,6 +376,31 @@ public class ControllerMangers {
 			// show the dialog
 			a.show();
 		}
+		else {
+			boolean digits = true;
+			try {
+	            int num =Integer.parseInt(quantityText.getText());
+	        } catch (NumberFormatException e) {
+	            digits = false;
+	        }
+			try {
+	            int num =Integer.parseInt(id_OrderBookText.getText());
+	        } catch (NumberFormatException e) {
+	            digits = false;
+	        }
+			if(digits) {
+					s2.manager.add_order(id_OrderBookText.getText(), Integer.parseInt(quantityText.getText()));
+			}
+			else {
+				Alert a = new Alert(AlertType.NONE);
+				// set alert type
+				a.setAlertType(AlertType.ERROR);
+				// set content text
+				a.setContentText("Please Enter numeric values");
+				// show the dialog
+				a.show();
+			}
+			}
 	}
 
 	public void confirm_Order(ActionEvent event) {

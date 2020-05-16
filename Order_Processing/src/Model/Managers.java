@@ -15,4 +15,6 @@ public interface Managers {
 	void add_author(String ISBN, String name);
 	
 	void add_publisher(String name, String address, String phone);
+	
+	public void add_order(String ISBN, int q);
 }
