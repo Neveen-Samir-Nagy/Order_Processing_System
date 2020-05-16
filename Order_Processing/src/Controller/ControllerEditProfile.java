@@ -64,13 +64,9 @@ public class ControllerEditProfile implements Initializable{
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 	
 	public void done(ActionEvent event) throws IOException, SQLException {
-		boolean type = false;
-		if(typeText.getText().toLowerCase().equals("manager")) {
-			type = true;
-		}
 		s2.my_user = new User(usernameText.getText(), passwordText.getText(),
 				firstnameText.getText(), lastnameText.getText(),emailText.getText(),
-				phoneText.getText(), shippingText.getText(), type);
+				phoneText.getText(), shippingText.getText(), typeText.getText());
 		s2.customer.edit_Information(s2.my_user, current_name);
 		Stage stage = (Stage) done.getScene().getWindow();
 	    stage.close();
@@ -94,11 +90,7 @@ public class ControllerEditProfile implements Initializable{
 		emailText.setText(s2.my_user.get_Email());
 		phoneText.setText(s2.my_user.get_phone());
 		shippingText.setText(s2.my_user.get_shippingAddress());
-		if(s2.my_user.get_type()) {
-			typeText.setText("Manager");
-		}else {
-			typeText.setText("Customer");
-		}
+		typeText.setText(s2.my_user.get_type());
 		passwordText.setText(s2.my_user.get_password());
 	}
 }

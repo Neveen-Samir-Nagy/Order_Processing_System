@@ -14,7 +14,7 @@ public class SingletonClasses {
 		sign = new SignInAndUp();
 		customer = new Customer();
 		manager = new Manager();
-		my_user = new User(null,null,null,null,null,null,null,false);
+		my_user = new User(null,null,null,null,null,null,null,null);
 	}
 	
 	public static SingletonClasses getoneclass() {

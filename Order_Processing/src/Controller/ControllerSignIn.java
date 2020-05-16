@@ -5,6 +5,8 @@ import java.sql.SQLException;
 
 import Model.SingletonClasses;
 import Model.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -22,6 +25,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class ControllerSignIn {
+	ObservableList<String> typeItems = FXCollections.observableArrayList("Customer", "Manager");
 
 	@FXML
 	Button log_in = new Button();
@@ -36,7 +40,8 @@ public class ControllerSignIn {
 	PasswordField pass = new PasswordField();
 
 	@FXML
-	TextField Type = new TextField();
+	ChoiceBox type = new ChoiceBox();
+	
 	@FXML
 	ImageView eye = new ImageView();
 
@@ -44,17 +49,23 @@ public class ControllerSignIn {
 	Label hide = new Label();
 	
 	SingletonClasses s2 = SingletonClasses.getoneclass();
+	
+	@FXML
+	private void initialize() {
+		type.setValue("Customer");
+		type.setItems(typeItems);
+	}
 
 	public void Sign_in(ActionEvent event) throws IOException, SQLException {
-		boolean type = false;
-		if(Type.getText().toLowerCase().equals("manager")) {
-			type = true;
-		}
-		ResultSet user = s2.sign.sign_in(user_name.getText(), pass.getText(), type);
+		//boolean type = false;
+		//if(Type.getText().toLowerCase().equals("manager")) {
+			//type = true;
+		//}
+		ResultSet user = s2.sign.sign_in(user_name.getText(), pass.getText(), type.getSelectionModel().getSelectedItem().toString());
 		if (user.next()) {
-			if(!type) {
+			if(type.getSelectionModel().getSelectedItem().toString() == "Customer") {
 				s2.my_user = new User(user.getString(1),user.getString(2),user.getString(3),user.getString(4),
-						user.getString(5),user.getString(6),user.getString(7),user.getBoolean(8));
+						user.getString(5),user.getString(6),user.getString(7),user.getString(8));
 				Parent loader = FXMLLoader.load(getClass().getResource("../View/CustomerFXML.fxml"));
 				Scene scene = new Scene(loader);
 				Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();

@@ -66,11 +66,7 @@ public class ControllerProfile implements Initializable {
 			emailText.setText(s2.my_user.get_Email());
 			phoneText.setText(s2.my_user.get_phone());
 			shippingText.setText(s2.my_user.get_shippingAddress());
-			if(s2.my_user.get_type()) {
-				typeText.setText("Manager");
-			}else {
-				typeText.setText("Customer");
-			}
+		    typeText.setText(s2.my_user.get_type());
 			passwordText.setText(s2.my_user.get_password());
 	}
 }

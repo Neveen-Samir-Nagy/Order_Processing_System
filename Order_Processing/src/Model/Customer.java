@@ -10,7 +10,7 @@ public class Customer implements Customers {
 		// TODO Auto-generated method stub
 		connectDB connect = connectDB.get_instance();
 		ResultSet set = null;
-		String query = "{CALL Update_User(?,?,?,?,?,?,?,?)}";
+		String query = "{CALL Update_User(?,?,?,?,?,?,?,?,?)}";
 		CallableStatement statement;
 		try {
 			connect.get_connection().setAutoCommit(false);
@@ -22,7 +22,8 @@ public class Customer implements Customers {
 			statement.setString(5, u.get_Email());
 			statement.setString(6, u.get_phone());
 			statement.setString(7, u.get_shippingAddress());
-			statement.setBoolean(8, u.get_type());
+			statement.setString(8, u.get_type());
+			statement.setString(9, current_name);
 			set = statement.executeQuery();
 			connect.get_connection().commit();
 		} catch (SQLException e) {

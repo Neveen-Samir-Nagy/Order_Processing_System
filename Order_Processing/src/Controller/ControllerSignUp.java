@@ -5,6 +5,8 @@ import java.sql.SQLException;
 
 import Model.SingletonClasses;
 import Model.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -22,6 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ControllerSignUp {
+	ObservableList<String> typeItems = FXCollections.observableArrayList("Customer", "Manager");
 	
 	@FXML
 	ImageView arrow = new ImageView();
@@ -50,7 +54,7 @@ public class ControllerSignUp {
 	@FXML
 	PasswordField passwordText = new PasswordField();
 	@FXML
-	TextField typeText = new TextField();
+	ChoiceBox type = new ChoiceBox();
 	@FXML
 	TextField firstnameText = new TextField();
 	@FXML
@@ -67,20 +71,26 @@ public class ControllerSignUp {
 	ImageView eye = new ImageView();
 	
 	SingletonClasses s2 = SingletonClasses.getoneclass();
+	
+	@FXML
+	private void initialize() {
+		type.setValue("Customer");
+		type.setItems(typeItems);
+	}
 
 	public void Sign_UP(ActionEvent event) throws IOException, SQLException {
-		boolean type = false;
-		if(typeText.getText().toLowerCase().equals("manager")) {
-			type = true;
-		}else {
-			type = false;
-		}
-		ResultSet set = s2.sign.sign_in(usernameText.getText(), passwordText.getText(), type);
+		//boolean type = false;
+		//if(typeText.getText().toLowerCase().equals("manager")) {
+			//type = true;
+		//}else {
+			//type = false;
+		//}
+		ResultSet set = s2.sign.sign_in(usernameText.getText(), passwordText.getText(), type.getSelectionModel().getSelectedItem().toString());
 		if(!set.next()) {
 			s2.my_user = new User(usernameText.getText(), passwordText.getText(), firstnameText.getText(), lastnameText.getText(),
-					emailText.getText(), phoneText.getText(), shippingText.getText(), type);
+					emailText.getText(), phoneText.getText(), shippingText.getText(), type.getSelectionModel().getSelectedItem().toString());
 			s2.sign.sign_up(s2.my_user);
-			if(!type) {
+			if(type.getSelectionModel().getSelectedItem().toString() == "Customer") {
 				Parent loader = FXMLLoader.load(getClass().getResource("../View/CustomerFXML.fxml"));
 				Scene scene = new Scene(loader);
 				Stage app = (Stage) ((Node) (event.getSource())).getScene().getWindow();

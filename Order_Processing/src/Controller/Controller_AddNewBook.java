@@ -7,14 +7,18 @@ import java.util.Queue;
 
 import Model.Book;
 import Model.SingletonClasses;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 public class Controller_AddNewBook {
+	ObservableList<String> categoryItems = FXCollections.observableArrayList("Science", "Art", "Religion", "History", "Geography");
 	@FXML
 	Button add = new Button();
 	@FXML
@@ -32,6 +36,10 @@ public class Controller_AddNewBook {
 	@FXML
 	Label category = new Label();
 	@FXML
+	Label quantity = new Label();
+	@FXML
+	Label threshold = new Label();
+	@FXML
 	Label newBook = new Label();
 	@FXML
 	TextField ISBNText = new TextField();
@@ -44,20 +52,30 @@ public class Controller_AddNewBook {
 	@FXML
 	TextField priceText = new TextField();
 	@FXML
-	TextField categoryText = new TextField();
+	ChoiceBox categoryList = new ChoiceBox();
 	@FXML
 	TextField authorText = new TextField();
+	@FXML
+	TextField quantityText = new TextField();
+	@FXML
+	TextField thresholdText = new TextField();
 	@FXML
 	TextField publisherAddressText = new TextField();
 	@FXML
 	TextField publisherPhoneText = new TextField();
 
 	SingletonClasses s2 = SingletonClasses.getoneclass();
+	
+	@FXML
+	private void initialize() {
+		categoryList.setValue("Science");
+		categoryList.setItems(categoryItems);
+	}
 
 	public void done(ActionEvent event) throws IOException, ParseException {
 		if (s2.get_book().equals("add")) {
 			Book b = new Book(ISBNText.getText(), titleText.getText(), authorText.getText(), publisherText.getText(),
-					yearText.getText(), Integer.parseInt(priceText.getText()), categoryText.getText(), 0, 0,
+					yearText.getText(), Integer.parseInt(priceText.getText()), categoryList.getSelectionModel().getSelectedItem().toString(), Integer.parseInt(quantityText.getText()), Integer.parseInt(thresholdText.getText()),
 					publisherAddressText.getText(), publisherPhoneText.getText());
 			s2.manager.add_publisher(b.get_publisher(), b.get_publisherAddress(), b.get_publisherPhone());
 			s2.manager.add_NewBook(b);
@@ -70,7 +88,7 @@ public class Controller_AddNewBook {
 			if (titleText.getText() != "Null") {
 
 			}
-			if (categoryText.getText() != "Null") {
+			if (categoryList.getSelectionModel().getSelectedItem().toString() != "Null") {
 
 			}
 			if (publisherText.getText() != "Null") {
@@ -83,6 +101,12 @@ public class Controller_AddNewBook {
 
 			}
 			if (authorText.getText() != "Null") {
+
+			}
+			if (quantityText.getText() != "Null") {
+
+			}
+			if (thresholdText.getText() != "Null") {
 
 			}
 

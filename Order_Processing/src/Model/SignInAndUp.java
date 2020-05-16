@@ -22,7 +22,7 @@ public class SignInAndUp implements Sign_INAndUP {
 			statement.setString(5, u.get_Email());
 			statement.setString(6, u.get_phone());
 			statement.setString(7, u.get_shippingAddress());
-			statement.setBoolean(8, u.get_type());
+			statement.setString(8, u.get_type());
 			set = statement.executeQuery();
 			connect.get_connection().commit();
 		} catch (SQLException e) {
@@ -32,7 +32,7 @@ public class SignInAndUp implements Sign_INAndUP {
 	}
 
 	@Override
-	public ResultSet sign_in(String name, String password, boolean type) {
+	public ResultSet sign_in(String name, String password, String type) {
 		// TODO Auto-generated method stub
 		connectDB connect = connectDB.get_instance();
 		String query = "{CALL Sign_IN(?,?,?)}";
@@ -43,7 +43,7 @@ public class SignInAndUp implements Sign_INAndUP {
 			statement = connect.get_connection().prepareCall(query);
 			statement.setString(1, name);
 			statement.setString(2, password);
-			statement.setBoolean(3, type);
+			statement.setString(3, type);
 			set = statement.executeQuery();
 			connect.get_connection().commit();
 		} catch (SQLException e) {
