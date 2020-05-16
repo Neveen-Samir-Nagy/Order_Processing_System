@@ -1,26 +1,30 @@
 package Model;
 
 import java.sql.*;
-
+import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Queue;
 
 public class Manager implements Managers{
 
 	@Override
-	public void add_NewBook(Book b) {
+	public void add_NewBook(Book b) throws ParseException {
 		// TODO Auto-generated method stub
 		connectDB connect = connectDB.get_instance();
 
 		String query = "{CALL AddBook(?,?,?,?,?,?,?,?)}";
 		CallableStatement statement;
 		try {
+			java.util.Date uDate = new java.util.Date();
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(uDate);
 			connect.get_connection().setAutoCommit(false);
 			statement = connect.get_connection().prepareCall(query);
 			statement.setString(1, b.get_ISBN());
 			statement.setString(2, b.get_title());
 			statement.setString(3, b.get_category());
 			statement.setString(4, b.get_publisher());
-			statement.setString(5, b.get_publication_year());
+			statement.setLong(5, cal.get(Calendar.YEAR));
 			statement.setInt(6, b.get_price());
 			statement.setInt(7, b.get_Quantity());
 			statement.setInt(8, b.get_Threshold());

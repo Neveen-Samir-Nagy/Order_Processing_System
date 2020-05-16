@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public interface Customers {
 
-	void edit_Information(User u) throws SQLException;
+	void edit_Information(User u, String current_name) throws SQLException;
 
 	ResultSet search_ForBooks(Book b);
 

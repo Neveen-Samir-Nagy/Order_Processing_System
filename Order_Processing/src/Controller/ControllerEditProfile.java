@@ -59,6 +59,7 @@ public class ControllerEditProfile implements Initializable{
 	ImageView eye = new ImageView();
 	@FXML
 	Label hide = new Label();
+	String current_name="";
 	
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 	
@@ -70,7 +71,7 @@ public class ControllerEditProfile implements Initializable{
 		s2.my_user = new User(usernameText.getText(), passwordText.getText(),
 				firstnameText.getText(), lastnameText.getText(),emailText.getText(),
 				phoneText.getText(), shippingText.getText(), type);
-		s2.customer.edit_Information(s2.my_user);
+		s2.customer.edit_Information(s2.my_user, current_name);
 		Stage stage = (Stage) done.getScene().getWindow();
 	    stage.close();
 	}
@@ -86,6 +87,7 @@ public class ControllerEditProfile implements Initializable{
 	
 	@Override
 	public void initialize(URL url, ResourceBundle resources) {
+		current_name = s2.my_user.get_userName();
 		usernameText.setText(s2.my_user.get_userName());
 		firstnameText.setText(s2.my_user.get_firstName());
 		lastnameText.setText(s2.my_user.get_lastName());

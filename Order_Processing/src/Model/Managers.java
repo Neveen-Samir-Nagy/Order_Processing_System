@@ -1,9 +1,10 @@
 package Model;
+import java.text.ParseException;
 import java.util.Queue;
 
 public interface Managers {
 
-	void add_NewBook(Book b);
+	void add_NewBook(Book b) throws ParseException;
 
 	void modify_ExistingBook(String ISBN, Book b);
 

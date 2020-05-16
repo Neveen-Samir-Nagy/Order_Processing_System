@@ -1,5 +1,7 @@
 package Controller;
+
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -52,46 +54,42 @@ public class Controller_AddNewBook {
 
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 
-	public void done(ActionEvent event) throws IOException {
-		Book b = new Book(ISBNText.getText(), titleText.getText(), authorText.getText(),
-				publisherText.getText(), yearText.getText(), Integer.parseInt(priceText.getText()),
-				categoryText.getText(), 0, 0 , publisherAddressText.getText(), publisherPhoneText.getText());
-		if(s2.get_book().equals("add")) {
+	public void done(ActionEvent event) throws IOException, ParseException {
+		if (s2.get_book().equals("add")) {
+			Book b = new Book(ISBNText.getText(), titleText.getText(), authorText.getText(), publisherText.getText(),
+					yearText.getText(), Integer.parseInt(priceText.getText()), categoryText.getText(), 0, 0,
+					publisherAddressText.getText(), publisherPhoneText.getText());
+			s2.manager.add_publisher(b.get_publisher(), b.get_publisherAddress(), b.get_publisherPhone());
 			s2.manager.add_NewBook(b);
-		}else if(s2.get_book().equals("modify")) {
-			Queue<String> column = new LinkedList<String>();
-			Queue<String> value = new LinkedList<String>();
-			if(ISBNText.getText() != "Null") {
-				column.add("ISBN");
-				value.add(ISBNText.getText());
+			s2.manager.add_author(b.get_ISBN(), b.get_author());
+		} else if (s2.get_book().equals("modify")) {
+			Book b_modify = new Book(null,null,null,null,null,0,null,0,0,null,null);
+			if (ISBNText.getText() != "Null") {
+				
 			}
-			if(titleText.getText() != "Null") {
-				column.add("Tilte");
-				value.add(titleText.getText());
+			if (titleText.getText() != "Null") {
+
 			}
-			if(categoryText.getText() != "Null") {
-				column.add("Category");
-				value.add(categoryText.getText());
+			if (categoryText.getText() != "Null") {
+
 			}
-			if(publisherText.getText() != "Null") {
-				column.add("Publisher_Name");
-				value.add(publisherText.getText());
+			if (publisherText.getText() != "Null") {
+
 			}
-			if(yearText.getText() != "Null") {
-				column.add("Publication_Year");
-				value.add(yearText.getText());
+			if (yearText.getText() != "Null") {
+
 			}
-			if(priceText.getText() != "Null") {
-				column.add("Selling_Price");
-				value.add(priceText.getText());
+			if (priceText.getText() != "Null") {
+
 			}
-			if(authorText.getText() != "Null") {
-				column.add("Author");
-				value.add(authorText.getText());
+			if (authorText.getText() != "Null") {
+
 			}
-			//s2.manager.modify_ExistingBook(s2.get_column_book(), s2.get_value_book(), column, value);
+
+			// s2.manager.modify_ExistingBook(s2.get_column_book(), s2.get_value_book(),
+			// column, value);
 		}
 		Stage stage = (Stage) add.getScene().getWindow();
-	    stage.close();
+		stage.close();
 	}
 }

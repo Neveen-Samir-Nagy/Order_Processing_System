@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class Customer implements Customers {
 
 	@Override
-	public void edit_Information(User u) throws SQLException {
+	public void edit_Information(User u, String current_name) throws SQLException {
 		// TODO Auto-generated method stub
 		connectDB connect = connectDB.get_instance();
 		ResultSet set = null;
