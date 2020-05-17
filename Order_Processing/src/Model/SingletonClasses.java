@@ -12,6 +12,7 @@ public class SingletonClasses {
 	private static String column = "";
 	private static String value = "";
 	public User my_user;
+	public Book book_modify;
 	public static ResultSet list_search;
 	public ArrayList<Book> list_insert = new ArrayList<Book>();
 	 private SingletonClasses() {

@@ -99,7 +99,7 @@ public class ControllerCustomers {
 	@FXML
 	Label shippingCart = new Label();
 	@FXML
-	ListView<ResultSet> list_Books = new ListView<ResultSet>();
+	ListView<String> list_Books = new ListView<String>();
 
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 
@@ -197,8 +197,13 @@ public class ControllerCustomers {
 			result_search = s2.customer.search_ForBooks(b);
 		}
 		if (result_search.next()) {
-			ObservableList<ResultSet> listChoices = FXCollections.observableArrayList(result_search);
-			list_Books.setItems(listChoices);
+			ObservableList<String> choices = FXCollections.observableArrayList("Book1");
+			int i=2;
+			while(result_search.next()) {
+				choices.add("Book"+(i));
+				i++;
+			}
+			list_Books.setItems(choices);
 		} else {
 			Alert a = new Alert(AlertType.NONE);
 			// set alert type
@@ -231,13 +236,12 @@ public class ControllerCustomers {
 			// show the dialog
 			a.show();
 		} else {
-			ObservableList<ResultSet> listChoices = list_Books.getItems();
-			for (int i = 0; i < listChoices.size(); i++) {
-				s2.customer.checkOut(listChoices.get(i));
-			}
-			for (int i = 0; i < listChoices.size(); i++) {
-				list_Books.getItems().remove(i);
-			}
+			/*
+			 * ObservableList<ResultSet> listChoices = list_Books.getItems(); for (int i =
+			 * 0; i < listChoices.size(); i++) { s2.customer.checkOut(listChoices.get(i)); }
+			 * for (int i = 0; i < listChoices.size(); i++) {
+			 * list_Books.getItems().remove(i); }
+			 */
 		}
 	}
 
@@ -247,8 +251,8 @@ public class ControllerCustomers {
 
 	public void view_items(ActionEvent event) {
 		Pane rootPane = new Pane();
-		ObservableList<ResultSet> listChoices = FXCollections.observableArrayList(list_Books.getItems());
-		ListView<ResultSet> listView = new ListView<ResultSet>();
+		ObservableList<String> listChoices = FXCollections.observableArrayList(list_Books.getItems());
+		ListView<String> listView = new ListView<String>();
 		listView.setItems(listChoices);
 		rootPane.getChildren().add(listView);
 		Stage newDialog = new Stage(StageStyle.DECORATED);

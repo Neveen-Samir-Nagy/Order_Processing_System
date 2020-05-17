@@ -3,7 +3,10 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.mysql.cj.protocol.Resultset;
+
 import Model.Book;
+import Model.Reports;
 import Model.SingletonClasses;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +31,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import net.sf.jasperreports.engine.JRException;
 
 public class ControllerMangers {
 
@@ -127,7 +131,7 @@ public class ControllerMangers {
 	@FXML
 	TextField user_update_Text = new TextField();
 	@FXML
-	ListView<ResultSet> list_Books = new ListView<ResultSet>();
+	ListView<String> list_Books = new ListView<String>();
 
 	SingletonClasses s2 = SingletonClasses.getoneclass();
 
@@ -225,8 +229,13 @@ public class ControllerMangers {
 			result_search = s2.customer.search_ForBooks(b);
 		}
 		if (result_search.next()) {
-			ObservableList<ResultSet> listChoices = FXCollections.observableArrayList(result_search);
-			list_Books.setItems(listChoices);
+			ObservableList<String> choices = FXCollections.observableArrayList("Book1");
+			int i=2;
+			while(result_search.next()) {
+				choices.add("Book"+(i));
+				i++;
+			}
+			list_Books.setItems(choices);
 		} else {
 			Alert a = new Alert(AlertType.NONE);
 			// set alert type
@@ -257,9 +266,9 @@ public class ControllerMangers {
 			// show the dialog
 			a.show();
 		} else {
-			ObservableList<ResultSet> listChoices = list_Books.getItems();
+			ObservableList<String> listChoices = list_Books.getItems();
 			for (int i = 0; i < listChoices.size(); i++) {
-				s2.customer.checkOut(listChoices.get(i));
+				//s2.customer.checkOut(listChoices.get(i));
 			}
 			for (int i = 0; i < listChoices.size(); i++) {
 				list_Books.getItems().remove(i);
@@ -273,8 +282,8 @@ public class ControllerMangers {
 
 	public void view_items(ActionEvent event) {
 		Pane rootPane = new Pane();
-		ObservableList<ResultSet> listChoices = FXCollections.observableArrayList(list_Books.getItems());
-		ListView<ResultSet> listView = new ListView<ResultSet>();
+		ObservableList<String> listChoices = FXCollections.observableArrayList(list_Books.getItems());
+		ListView<String> listView = new ListView<String>();
 		listView.setItems(listChoices);
 		rootPane.getChildren().add(listView);
 		Stage newDialog = new Stage(StageStyle.DECORATED);
@@ -321,60 +330,33 @@ public class ControllerMangers {
 	}
 
 	public void view_Report1(ActionEvent event) {
-		Pane rootPane = new Pane();
-		ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
-		ListView<String> listView = new ListView<String>();
-		listView.setItems(listChoices);
-		rootPane.getChildren().add(listView);
-		Stage newDialog = new Stage(StageStyle.DECORATED);
-		newDialog.getIcons().add(new Image("Book.jpeg"));
-		listView.setPrefWidth(800);
-		listView.setPrefHeight(500);
-		newDialog.setMinHeight(500);
-		newDialog.setMinWidth(800);
-		newDialog.initModality(Modality.APPLICATION_MODAL);
-		newDialog.setTitle("Total Prices");
-		Scene newDialogScene = new Scene(rootPane);
-		newDialog.setScene(newDialogScene);
-		newDialog.show();
+		Reports r = new Reports();
+		try {
+			r.total_sales();
+		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void view_Report2(ActionEvent event) {
-		Pane rootPane = new Pane();
-		ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
-		ListView<String> listView = new ListView<String>();
-		listView.setItems(listChoices);
-		rootPane.getChildren().add(listView);
-		Stage newDialog = new Stage(StageStyle.DECORATED);
-		newDialog.getIcons().add(new Image("Book.jpeg"));
-		listView.setPrefWidth(800);
-		listView.setPrefHeight(500);
-		newDialog.setMinHeight(500);
-		newDialog.setMinWidth(800);
-		newDialog.initModality(Modality.APPLICATION_MODAL);
-		newDialog.setTitle("Top 5 Customers");
-		Scene newDialogScene = new Scene(rootPane);
-		newDialog.setScene(newDialogScene);
-		newDialog.show();
+		Reports r = new Reports();
+		try {
+			r.top_fiveCustomers();
+		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void view_Report3(ActionEvent event) {
-		Pane rootPane = new Pane();
-		ObservableList<String> listChoices = FXCollections.observableArrayList("neveen");
-		ListView<String> listView = new ListView<String>();
-		listView.setItems(listChoices);
-		rootPane.getChildren().add(listView);
-		Stage newDialog = new Stage(StageStyle.DECORATED);
-		newDialog.getIcons().add(new Image("Book.jpeg"));
-		listView.setPrefWidth(800);
-		listView.setPrefHeight(500);
-		newDialog.setMinHeight(500);
-		newDialog.setMinWidth(800);
-		newDialog.initModality(Modality.APPLICATION_MODAL);
-		newDialog.setTitle("Top 10 Selling Books");
-		Scene newDialogScene = new Scene(rootPane);
-		newDialog.setScene(newDialogScene);
-		newDialog.show();
+		Reports r = new Reports();
+		try {
+			r.top_tenSellingBooks();
+		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void place_Order(ActionEvent event) {
@@ -416,14 +398,14 @@ public class ControllerMangers {
 
 	public void confirm_Order(ActionEvent event) {
 		Pane rootPane = new Pane();
-		ObservableList<ResultSet> listChoices = FXCollections.observableArrayList(list_Books.getItems());
-		ListView<ResultSet> listView = new ListView<ResultSet>();
-		listView.setItems(listChoices);
-		rootPane.getChildren().add(listView);
+		//ObservableList<String> listChoices = FXCollections.observableArrayList(list_Books.getItems());
+		//ListView<ResultSet> listView = new ListView<ResultSet>();
+		//listView.setItems(listChoices);
+		//rootPane.getChildren().add(listView);
 		Stage newDialog = new Stage(StageStyle.DECORATED);
 		newDialog.getIcons().add(new Image("Book.jpeg"));
-		listView.setPrefWidth(800);
-		listView.setPrefHeight(500);
+		//listView.setPrefWidth(800);
+		//listView.setPrefHeight(500);
 		newDialog.setMinHeight(500);
 		newDialog.setMinWidth(800);
 		newDialog.initModality(Modality.APPLICATION_MODAL);
@@ -433,27 +415,30 @@ public class ControllerMangers {
 		newDialog.show();
 	}
 
-	public void modify_Book(ActionEvent event) throws IOException {
-		String column = "";
-		String value = "";
-		s2.set_book("modify");
+	public void modify_Book(ActionEvent event) throws IOException, SQLException {
+		ResultSet result_search = null;
+		Book b = new Book(null, null, null, null, null, 0, null, 0, 0, null, null);
 		if (event.getSource() instanceof MenuItem) {
-			column = "Category";
-			value = ((MenuItem)event.getSource()).getText();
+			b.set_category(((MenuItem) event.getSource()).getText());
+			result_search = s2.customer.search_ForBooks(b);
 		} else if (event.getSource() instanceof TextField) {
 			if (((TextField) event.getSource()).getId().contains("publisher")) {
-				column = "Publisher_Name";
-				value = ((TextField)event.getSource()).getText();
+				b.set_publisher(((TextField) event.getSource()).getText());
+				result_search = s2.customer.search_ForBooks(b);
 			} else if (((TextField) event.getSource()).getId().contains("author")) {
-				column = "Author";
-				value = ((TextField)event.getSource()).getText();
+				String[] arrOfStr = ((TextField) event.getSource()).getText().split(" ");
+				for (String a : arrOfStr) {
+					b.set_author(a);
+					result_search = s2.customer.search_ForBooks(b);
+				}
 			} else if (((TextField) event.getSource()).getId().contains("ISBN_Title")) {
-				column = "ISBN_Title";
-				value = ((TextField)event.getSource()).getText();
+				String[] arrOfStr = ((TextField) event.getSource()).getText().split(" ");
+				b.set_ISBN(arrOfStr[0]);
+				b.set_title(arrOfStr[1]);
+				result_search = s2.customer.search_ForBooks(b);
 			}
+
 		}
-		s2.set_column_book(column);
-		s2.set_valye_book(value);
 		Parent root = FXMLLoader.load(getClass().getResource("../View/New_Book.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = new Stage();
@@ -461,8 +446,30 @@ public class ControllerMangers {
 		stage.setScene(scene);
 		stage.show();
 		Alert a1 = new Alert(AlertType.NONE, "Please Enter Null for no needed attributes", ButtonType.OK);
-		// show the dialog
 		a1.show();
+		while(result_search.next()) {
+			String ISBN = result_search.getString(1);
+			if(s2.book_modify.get_ISBN().equals(null)) {
+				s2.book_modify.set_ISBN(result_search.getString(1));
+			} if (s2.book_modify.get_title().equals(null)) {
+				s2.book_modify.set_title(result_search.getString(2));
+			}if (s2.book_modify.get_category().equals(null)) {
+				s2.book_modify.set_category(result_search.getString(4));
+			}if (s2.book_modify.get_author().equals(null)) {
+				s2.book_modify.set_author(result_search.getString(3));
+			}if(s2.book_modify.get_price()==0) {
+				s2.book_modify.set_price(result_search.getInt(7));
+			}if(s2.book_modify.get_publication_year().equals(null)) {
+				s2.book_modify.set_publication_year(result_search.getString(6));
+			}if(s2.book_modify.get_publisher().equals(null)) {
+				s2.book_modify.set_publisher(result_search.getString(5));
+			}if(s2.book_modify.get_Quantity()==0) {
+				s2.book_modify.set_Quantity(result_search.getInt(8));
+			}if(s2.book_modify.get_Threshold()==0) {
+				s2.book_modify.set_Threshold(result_search.getInt(9));
+			}
+			s2.manager.modify_ExistingBook(ISBN, s2.book_modify);
+		}
 	}
 	
 	public void update_User(ActionEvent event) {

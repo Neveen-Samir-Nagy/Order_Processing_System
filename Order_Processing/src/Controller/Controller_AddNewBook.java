@@ -83,35 +83,33 @@ public class Controller_AddNewBook {
 		} else if (s2.get_book().equals("modify")) {
 			Book b_modify = new Book(null,null,null,null,null,0,null,0,0,null,null);
 			if (ISBNText.getText() != "Null") {
-				
+				b_modify.set_ISBN(ISBNText.getText());
 			}
 			if (titleText.getText() != "Null") {
-
+				b_modify.set_title(titleText.getText());
 			}
 			if (categoryList.getSelectionModel().getSelectedItem().toString() != "Null") {
-
+				b_modify.set_category(categoryList.getSelectionModel().getSelectedItem().toString());
 			}
 			if (publisherText.getText() != "Null") {
-
+				b_modify.set_publisher(publisherText.getText());
 			}
 			if (yearText.getText() != "Null") {
-
+				b_modify.set_publication_year(yearText.getText());
 			}
 			if (priceText.getText() != "Null") {
-
+				b_modify.set_price(Integer.parseInt(priceText.getText()));
 			}
 			if (authorText.getText() != "Null") {
-
+				b_modify.set_author(authorText.getText());
 			}
 			if (quantityText.getText() != "Null") {
-
+				b_modify.set_Quantity(Integer.parseInt(quantityText.getText()));
 			}
 			if (thresholdText.getText() != "Null") {
-
+				b_modify.set_Threshold(Integer.parseInt(thresholdText.getText()));
 			}
-
-			// s2.manager.modify_ExistingBook(s2.get_column_book(), s2.get_value_book(),
-			// column, value);
+			s2.book_modify  = b_modify;
 		}
 		Stage stage = (Stage) add.getScene().getWindow();
 		stage.close();
