@@ -151,26 +151,37 @@ public class ControllerMangers {
 
 	public void search_forBook(ActionEvent event) throws IOException, SQLException {
 		ResultSet result_search = null;
-		Book b = new Book(null, null, null, null, null, 0, null,0,0,null,null);
+		Book b = new Book(null, null, null, null, null, 0, null, 0, 0, null, null);
 		if (event.getSource() instanceof MenuItem) {
 			b.set_category(((MenuItem) event.getSource()).getText());
 			result_search = s2.customer.search_ForBooks(b);
 		} else if (event.getSource() instanceof TextField) {
 			if (((TextField) event.getSource()).getId().contains("publisher")) {
 				b.set_publisher(((TextField) event.getSource()).getText());
+				result_search = s2.customer.search_ForBooks(b);
 			} else if (((TextField) event.getSource()).getId().contains("author")) {
-				b.set_author(((TextField) event.getSource()).getText());
+				String[] arrOfStr = ((TextField) event.getSource()).getText().split(" ");
+				for (String a : arrOfStr) {
+					b.set_author(a);
+					result_search = s2.customer.search_ForBooks(b);
+				}
 			} else if (((TextField) event.getSource()).getId().contains("ISBN_Title")) {
 				String[] arrOfStr = ((TextField) event.getSource()).getText().split(" ");
 				b.set_ISBN(arrOfStr[0]);
 				b.set_title(arrOfStr[1]);
+				result_search = s2.customer.search_ForBooks(b);
 			}
-			result_search = s2.customer.search_ForBooks(b);
+
 		}
 		if (result_search.next()) {
 			Pane rootPane = new Pane();
-			ObservableList<ResultSet> choices = FXCollections.observableArrayList(result_search);
-			ListView<ResultSet> listView = new ListView<ResultSet>();
+			ObservableList<String> choices = FXCollections.observableArrayList("Book1");
+			int i=2;
+			while(result_search.next()) {
+				choices.add("Book"+(i));
+				i++;
+			}
+			ListView<String> listView = new ListView<String>();
 			listView.setItems(choices);
 			rootPane.getChildren().add(listView);
 			Stage newDialog = new Stage(StageStyle.DECORATED);
@@ -180,7 +191,7 @@ public class ControllerMangers {
 			newDialog.setMinHeight(500);
 			newDialog.setMinWidth(800);
 			newDialog.initModality(Modality.APPLICATION_MODAL);
-			newDialog.setTitle("Book");
+			newDialog.setTitle("Books");
 			Scene newDialogScene = new Scene(rootPane);
 			newDialog.setScene(newDialogScene);
 			newDialog.show();

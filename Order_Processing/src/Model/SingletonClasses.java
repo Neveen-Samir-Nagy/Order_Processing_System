@@ -1,5 +1,8 @@
 package Model;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 public class SingletonClasses {
 	public SignInAndUp sign;
 	public Customer customer;
@@ -9,6 +12,8 @@ public class SingletonClasses {
 	private static String column = "";
 	private static String value = "";
 	public User my_user;
+	public static ResultSet list_search;
+	public ArrayList<Book> list_insert = new ArrayList<Book>();
 	 private SingletonClasses() {
 		// TODO Auto-generated constructor stub
 		sign = new SignInAndUp();
@@ -41,5 +46,11 @@ public class SingletonClasses {
 	}
 	public static void set_valye_book(String type) {
 		value = type;
+	}
+	public static void get_resultSearch(ResultSet r) {
+		list_search = r;
+	}
+	public static ResultSet get_resultSearch() {
+		return list_search;
 	}
 }

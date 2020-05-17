@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controller.ControllerSearch">
+   <children>
+      <AnchorPane layoutX="-1.0" prefHeight="859.0" prefWidth="1045.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: left top,center; -fx-background-size: cover;">
+         <children>
+            <ButtonBar layoutX="295.0" layoutY="639.0" prefHeight="53.0" prefWidth="209.0" />
+            <Button fx:id="insert" layoutX="387.0" layoutY="774.0" mnemonicParsing="false" onAction="#insert_toCart" prefHeight="61.0" prefWidth="299.0" style="-fx-background-image: url(&quot;Edit.jpeg&quot;); -fx-background-position: center; -fx-background-size: cover;" text="Insert To My Cart" textFill="#1c657c">
+               <font>
+                  <Font name="Bell MT" size="33.0" />
+               </font>
+            </Button>
+            <Label fx:id="hide" layoutX="737.0" layoutY="713.0" prefHeight="47.0" prefWidth="96.0" text="Label" textFill="#756969" visible="false">
+               <font>
+                  <Font name="Andalus" size="21.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="427.0" layoutY="31.0" prefHeight="81.0" prefWidth="168.0" text="Books" textFill="#1c657c">
+               <font>
+                  <Font name="Andalus" size="65.0" />
+               </font>
+            </Label>
+            <TableView fx:id="table" layoutX="14.0" layoutY="159.0" prefHeight="595.0" prefWidth="1017.0">
+              <columns>
+                <TableColumn prefWidth="85.0" text="Number" />
+                <TableColumn prefWidth="86.0" text="ISBN" />
+                  <TableColumn prefWidth="90.0" text="Title" />
+                  <TableColumn prefWidth="109.0" text="Author" />
+                  <TableColumn prefWidth="97.0" text="Category" />
+                  <TableColumn prefWidth="122.0" text="Publisher" />
+                  <TableColumn prefWidth="103.0" text="Year" />
+                  <TableColumn prefWidth="123.0" text="Price" />
+                  <TableColumn prefWidth="99.0" text="Quantity" />
+                  <TableColumn prefWidth="102.0" text="Threshold" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

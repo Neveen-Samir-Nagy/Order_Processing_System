@@ -12,8 +12,6 @@ public class MainGui extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		Reports r = new Reports();
-		r.total_sales();
 		Parent root = FXMLLoader.load(getClass().getResource("../View/Sign_IN.fxml"));
 		Scene scence = new Scene(root);
 		primaryStage.getIcons().add(new Image("Book.jpeg"));
