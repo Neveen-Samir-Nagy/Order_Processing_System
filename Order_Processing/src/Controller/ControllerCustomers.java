@@ -229,11 +229,8 @@ public class ControllerCustomers {
 		// remove book from table that are in shipping cart list_books
 		if (creditCardText.getText().equals("") || dateText.getText().equals("")) {
 			Alert a = new Alert(AlertType.NONE);
-			// set alert type
 			a.setAlertType(AlertType.ERROR);
-			// set content text
 			a.setContentText("Please Enter all required Information");
-			// show the dialog
 			a.show();
 		} else {
 			/*
@@ -242,6 +239,10 @@ public class ControllerCustomers {
 			 * for (int i = 0; i < listChoices.size(); i++) {
 			 * list_Books.getItems().remove(i); }
 			 */
+			ObservableList<String> listChoices = list_Books.getItems();
+			for (int i = 0; i < listChoices.size(); i++) {
+				list_Books.getItems().remove(i);
+			}
 		}
 	}
 
