@@ -148,9 +148,9 @@ public class ControllerCustomers {
 		if (result_search.next()) {
 			Pane rootPane = new Pane();
 			ObservableList<String> choices = FXCollections.observableArrayList("Book1");
-			int i=2;
-			while(result_search.next()) {
-				choices.add("Book"+(i));
+			int i = 2;
+			while (result_search.next()) {
+				choices.add("Book" + (i));
 				i++;
 			}
 			ListView<String> listView = new ListView<String>();
@@ -198,9 +198,9 @@ public class ControllerCustomers {
 		}
 		if (result_search.next()) {
 			ObservableList<String> choices = FXCollections.observableArrayList("Book1");
-			int i=2;
-			while(result_search.next()) {
-				choices.add("Book"+(i));
+			int i = 2;
+			while (result_search.next()) {
+				choices.add("Book" + (i));
 				i++;
 			}
 			list_Books.setItems(choices);
@@ -233,13 +233,10 @@ public class ControllerCustomers {
 			a.setContentText("Please Enter all required Information");
 			a.show();
 		} else {
-			/*
-			 * ObservableList<ResultSet> listChoices = list_Books.getItems(); for (int i =
-			 * 0; i < listChoices.size(); i++) { s2.customer.checkOut(listChoices.get(i)); }
-			 * for (int i = 0; i < listChoices.size(); i++) {
-			 * list_Books.getItems().remove(i); }
-			 */
 			ObservableList<String> listChoices = list_Books.getItems();
+			for (int i = 0; i < listChoices.size(); i++) {
+				//s2.customer.checkOut(listChoices.get(i));
+			}
 			for (int i = 0; i < listChoices.size(); i++) {
 				list_Books.getItems().remove(i);
 			}
